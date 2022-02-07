@@ -1,5 +1,9 @@
 
 <!-- BEGIN USF -->
+{% assign page_title  =  'search.general.title' | t %}
+<script>
+    document.title = '{{ page_title }} - {{ shop.name}}'; 
+</script>
 {%- capture section_settings -%}
   {
     "collectionUrl": {{ collection.url | default: '/collections/all' | json }},
@@ -50,6 +54,10 @@
 <!-- END USF -->
 
 {% comment %}USF
+
+
+
+
 <section data-section-id="search" data-section-type="search">
   {%- if search.performed == false or search.results_count == 0 -%}
     <div class="EmptyState">
@@ -123,6 +131,8 @@
     {%- endpaginate -%}
   {%- endif -%}
 </section>
+
+
 
 
 USF{% endcomment %}

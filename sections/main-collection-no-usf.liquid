@@ -1,3 +1,17 @@
+<style>
+  @media screen and (min-width: 641px){
+  			
+    #shopify-section-template--15178329325719__main .u-h1{
+      font-size:28px;
+      margin-bottom:5px;
+   }
+  
+  }
+</style>
+
+
+
+
 {%- if section.settings.show_layout_switch -%}
   {%- assign desktop_items_per_row = cart.attributes.collection_desktop_items_per_row | default: section.settings.grid_desktop_items_per_row | times: 1 -%}
   {%- assign mobile_items_per_row  = cart.attributes.collection_mobile_items_per_row | default: section.settings.grid_mobile_items_per_row | times: 1 -%}
@@ -378,6 +392,8 @@
     </div>
   {%- endif -%}
 </section>
+
+
 
 {% schema %}
 {
