@@ -1,0 +1,106 @@
+{%- comment -%}
+
+This is the product tab in specific product page
+
+{%- endcomment -%}
+
+<div class="product-tab">
+    	<a class="product-tablinks" onclick="openCol(event, 'info-1')" id="defaultOpen">DESCRIPTION</a>
+  		<a class="product-tablinks" onclick="openCol(event, 'info-2')">DELIVERY & PAYMENT</a>
+    	<a class="product-tablinks" onclick="openCol(event, 'info-3')">CARE</a>
+
+</div>
+	<div id="info-1" class="product-tabcontent">
+     {{ product.description | replace: 'data-section-type', 'data-section-type-placeholder' }}
+	</div>
+	<div id="info-2" class="product-tabcontent">
+      <p>We offer free shipping for all orders within Singapore, plus free 14-day returns. View the terms and conditions <a href="pages/returns-exchanges" target="_blank" rel="noopener">here</a>.</p>
+      <p>For international orders, the shipping cost depends on the region and weight of the package. Kindly note that the cost does not include import taxes. View the full shipping terms <a href="/pages/shipping-information" target="_blank">here.</a> </p>
+      <p>Free 14-day returns for orders within West Malaysia. View the terms and conditions <a href="https://www.bonia.com/pages/returns-exchanges" target="_blank" rel="noopener">here.</a></p>
+      <p>Payment methods: Credit card/GrabPay/ApplePay/Hoolah </p>
+    </div>
+	<div id="info-3" class="product-tabcontent">
+      <p>If you have any enquiries, our dedicated customer care team are at your service. 
+        Please contact <a href="mailto:{{shop.email}}">{{shop.email}} </a> or visit our <a href="/pages/contact-us" target="_blank" rel="noopener">contact page</a> for other options.</p>
+      <p>As our products are made from the highest quality leather, we ask that you take proper care of them and they will last for years to come. Refer to our <a href="/pages/product-care" target="_blank" rel="noopener">product care page</a> for a step by step guide.</p>
+	</div>
+
+
+
+
+<style>
+  
+  /* Style the buttons inside the tab */
+  
+  .product-tab{
+  	margin:10px 0 0 0;
+  }
+.product-tab a {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 12px 14px 0px;
+  transition: 0.3s;
+  font-size: 12px;
+  color:gray;
+}
+
+/* Change background color of buttons on hover */
+.product-tab a:hover {
+  text-decoration:underline;
+  color:black;
+}
+
+/* Create an active/current tablink class */
+.product-tab .active {
+  text-decoration:underline;
+  color:black;
+  font-weight:700;
+}
+
+/* Style the tab content */
+.product-tabcontent {
+  display: none;
+  padding: 6px 0px;
+  border-top: none;
+  
+}  
+  
+  .product-tabcontent a{
+  
+   text-decoration:underline;
+  
+  }
+
+  
+</style>
+
+
+<script>
+  function openCol(evt, infoCol){
+    var i;
+    var productTabContent;
+    var productTabLinks;
+
+    productTabContent = document.getElementsByClassName('product-tabcontent');
+    for (i = 0; i < productTabContent.length; i++){
+        productTabContent[i].style.display = "none";
+    }
+
+    productTabLinks = document.getElementsByClassName('product-tablinks');
+    for (i = 0; i < productTabLinks.length; i++){
+        productTabLinks[i].className = productTabLinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(infoCol).style.display = "block";
+    evt.currentTarget.className += " active";
+    
+
+}
+
+document.getElementById("defaultOpen").click();
+
+
+  
+</script>

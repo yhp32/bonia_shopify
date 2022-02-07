@@ -1,0 +1,77 @@
+{% comment %} ***LocalBusiness*** {% endcomment %}
+<script type='application/ld+json'> 
+{
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "logo": "https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Bonia_LOGO_250x_44bfc194-715a-4aa5-b06f-6e6e190b89f7.jpg?v=1595842367",
+    "image": "https://cdn.shopify.com/s/files/1/0434/3716/2647/files/BSIS-5.jpg-1_13dd7898-8241-4831-a4b0-05b3723bd41e.jpg?v=1601028914",
+    "name": "{{ shop.name }}",
+    "telephone": "+6590885259",
+    "geo":{
+        "@type": "GeoCoordinates",
+
+        "latitude": "1.357814",
+        "longitude": "103.891404"
+    },
+    "url": "{{ shop.url }}",
+    "priceRange": "$$$",
+    "email": "{{ shop.email }}",
+    "contactPoint":    {
+        "@type": "ContactPoint",
+        "telephone": "+6590885259",
+        "contactType": "Technical Support",
+        "email": "null"
+    },
+    "address":    {
+        "@type": "PostalAddress",
+        "addressCountry": "{{ shop.address.country }}",
+        "addressLocality": "{{ shop.address.city }}",
+        "addressRegion": "{{ shop.address.province }}",
+        "postalCode": "{{ shop.address.zip }}",
+        "streetAddress": "{{ shop.address.street }}"
+       
+    },
+    "openingHours": "Mo-Su 10:00-21:00",
+     "sameAs": ["https://www.facebook.com/BoniaFashion"]
+} 
+</script>
+{% comment %} ***WebSite*** {% endcomment %}
+<script type='application/ld+json'>
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "url": "{{ shop.url }}",
+  "potentialAction": {"@type": "SearchAction",
+  "target": "{{ shop.url }}/search?type=product&q={query}",
+  "query-input": "required name=query"}
+}
+</script>
+{% comment %} ***Product*** {% endcomment %}
+{% if template == "product" %} 
+<script type='application/ld+json'>
+{
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": "{{ product.title }}",
+    "image": "{{ product.featured_image }}",
+    "description": "{{ product.description | strip_html | truncatewords: 20 }}",    
+    "brand":
+    {
+        "@type": "Thing",
+        "name": "{{ product.vendor }}"
+    },
+    "offers":
+    {
+        "@type": "Offer",
+        "priceCurrency": "{{ shop.currency }}",
+        "price": "{{ product.price | divided_by: 100 }}",        
+        
+        {% if product.available %}
+          "availability": "http://schema.org/InStock"
+        {% else %}
+          "availability": "http://schema.org/SoldOut"
+        {% endif %}
+    }
+} 
+</script>
+{% endif %} 
