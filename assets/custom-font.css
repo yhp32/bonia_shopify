@@ -1,0 +1,34 @@
+@font-face {
+      font-family: Sangbleu-Sans;
+      src: url(https://cdn.shopify.com/s/files/1/0434/3716/2647/files/SangBleuSans-Regular.otf?v=1635743855);
+     
+    }
+
+@font-face {
+      font-family: AcuminPro;
+      src: url(https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Acumin_Pro_Light.otf?v=1635743926);
+     
+    }
+
+
+
+
+.u-h1, .u-h2, .u-h3, .u-h4, .u-h5, .ArticleItem__Title  a, .ProductMeta__Title, .intro-w-cta-text {
+font-family:Sangbleu-Sans;
+}
+
+.CartItem__Info .CartItem__Title, .CartItem__Meta .CartItem__Variant, .CartItem__Meta .CartItem__PriceList{
+ font-family:AcuminPro;
+}
+     
+     .ProductMeta__Price, .ProductItem__Title a, body{
+       	font-family:AcuminPro;
+        margin:0;
+        padding:0;
+        
+    }
+.ProductItem__Title a{
+	font-size:15px;
+  
+}
+	
