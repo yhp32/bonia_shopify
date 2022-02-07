@@ -1,0 +1,72 @@
+<style>
+  
+  @media screen and (min-width:1007px){
+  .Product__Info .product-label{
+  	margin:10px 0;
+  }
+  }
+   @media screen and (max-width:1007px){
+  .Product__Info .product-label{
+  	margin:10px auto;
+  }
+  
+   }
+</style>
+
+{%- comment -%}
+=============================================================================
+TAG BASED PRODUCT LABELS
+  - Label text and color can be customized from theme settings
+  - Admin just needs to add label_01 or label_02 tag on products 
+
+USAGE: 
+  {% include 'product-labels', product: product %}
+=============================================================================
+{%- endcomment -%}
+    
+{%- assign show_label = false -%}
+{%- for tag in product.tags -%}
+  {%- if tag contains 'label_' -%}
+    {%- assign show_label = true -%}  	
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if show_label -%}
+  {%- assign label_01 = settings.label_1_text -%}
+  {%- assign label_02 = settings.label_2_text -%}
+	{%- assign label_03 = settings.label_3_text -%}
+{%- assign label_04 = settings.label_4_text -%}
+
+  <div class="New__Badges Product__Item">
+    {%- for tag in product.tags -%}
+      {%- if tag contains 'label_01' and label_01 != blank -%}        	
+        <div class="Label_01">
+          <span class="ProductItem__Label Heading Text--subdued product-label">
+            {{ label_01 }}
+          </span>
+        </div>
+      {%- endif -%}
+      {%- if tag contains 'label_02' and label_02 != blank -%}        	
+        <div class="Label_02">
+          <span class="ProductItem__Label Heading Text--subdued product-label">
+            {{ label_02 }}
+          </span>
+        </div>
+      {%- endif -%}
+    {%- if tag contains 'label_03' and label_03 != blank -%}        	
+        <div class="Label_03">
+          <span class="ProductItem__Label Heading Text--subdued product-label">
+            {{ label_03 }}
+          </span>
+        </div>
+      {%- endif -%}
+    {%- if tag contains 'label_04' and label_04 != blank -%}        	
+        <div class="Label_02">
+          <span class="ProductItem__Label Heading Text--subdued product-label">
+            {{ label_04 }}
+          </span>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{%- endif -%}
