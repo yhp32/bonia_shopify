@@ -1,0 +1,255 @@
+
+
+<style>
+  
+  .category_carousel{
+  
+    display:flex;
+  	margin:30px 0 0 0;
+    padding-right:5px;
+    position:relative;
+    overflow-x:auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+ 	 scrollbar-width: none;  /* Firefox */
+    
+  }
+  
+  .category_carousel::-webkit-scrollbar {
+  display: none;
+}
+  .product_carousel_cell{
+		
+		width:25%;
+    	margin-left:5px;
+    	flex:0 0 auto;
+    	
+	
+	}
+  
+  .product_carousel_title{
+    	position:relative;
+  		font-family:Sangbleu;
+    	font-size:20px;
+    	margin:100px 0 0 20px;
+  }
+
+
+  
+
+  .category-next-btn{
+  	position:absolute;
+    top:calc(50% - 45px);
+    right:8px;
+    z-index:2;
+    border: none;
+	border-radius: 50%;
+	background-color:white;
+	color: #000;
+	cursor: pointer;
+	text-align: center;
+	z-index: 1;
+	vertical-align: middle;
+	line-height: 0;
+	padding:10px;
+    opacity:0.7;
+    
+   
+  }
+  
+  .category-next-btn:hover{
+  	opacity:1;
+    color: #000000;
+    transform: scale(1.05);
+    transition:transform 0.1s ease-in-out;
+	
+  }
+  
+  .category-next-btn svg{
+  	height:23px;
+  }
+  
+  .category_carousel .cell_title{
+  	margin:8px 0 0px 3px;
+    
+  }
+  
+  .category_carousel .cell_price{
+  	margin-left:3px;
+    margin-top:-2px;
+  	color:#808080;
+    font-size:14px;
+    
+  }
+  
+  .product_carousel_container{
+  
+  	position:relative;
+  }
+  
+  @media screen and (max-width:650px){
+  
+    .category_carousel{
+    
+    	margin:30px 0 0px 0;
+    }
+    	.product_carousel_title{
+    	
+    	margin:50px 0 0 10px;
+  }
+  	  .product_carousel_cell{
+		flex:0 0 auto;
+		width:40%;
+    	margin-left:5px;
+    	
+      }
+       .category-next-btn{
+       	 display:none;
+       }
+	
+	}
+  	
+  
+  
+ 
+  
+</style>
+
+
+
+
+		<div class="product_carousel_title">
+    		{{section.settings.category_title}}
+        
+  		</div>  
+   
+<div class="product_carousel_container">
+<div class="category_carousel">
+ 	
+ 
+	<div class="product_carousel_cell">
+      <a href="/collections/new-arrival-womens-shoulder-bags">
+     	<div class="cell_img_container">
+          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Category_shoulderbag.jpg?v=1633326306"
+        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Category_shoulderbag.jpg?v=1633326306"
+        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
+        data-sizes="auto"
+        data-parent-fit="cover"
+        alt=""
+        class="lazyload Image--lazyLoad Image--fadeIn">
+          
+        </div>
+        <div class="cell_title">
+         Shoulder Bag
+        </div>
+      	<div class="cell_price">
+		 Shop Now
+      	</div>
+      </a>
+  </div> 
+  <div class="product_carousel_cell" >
+      <a href="/collections/wallet">
+      <div class="cell_img_container">
+          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Oct_Homepage_Category_Wallet.jpg?v=1633326306"
+        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Oct_Homepage_Category_Wallet.jpg?v=1633326306"
+        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
+        data-sizes="auto"
+        data-parent-fit="cover"
+        alt=""
+        class="lazyload Image--lazyLoad Image--fadeIn">
+          
+        </div>
+        <div class="cell_title">
+          Wallet
+        </div>
+      	<div class="cell_price">
+          Shop Now
+      	</div>
+    </a>
+  </div>
+    <div class="product_carousel_cell" >
+      <a href="/collections/new-arrival-womens-crossbody-bags">
+      <div class="cell_img_container">
+          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/DSC06172.jpg?v=1638940392"
+        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/DSC06172.jpg?v=1638940392"
+        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
+        data-sizes="auto"
+        data-parent-fit="cover"
+        alt=""
+        class="lazyload Image--lazyLoad Image--fadeIn">
+          
+        </div>
+        <div class="cell_title">
+          Crossbody Bags
+        </div>
+      	<div class="cell_price">
+          Shop Now
+      	</div>
+    </a>
+      
+  </div>
+  <div class="product_carousel_cell">
+      <a href="/collections/new-arrival-men">
+      <div class="cell_img_container">
+          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Category_Men_s.jpg?v=1638940392"
+        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Category_Men_s.jpg?v=1638940392"
+        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
+        data-sizes="auto"
+        data-parent-fit="cover"
+        alt=""
+        class="lazyload Image--lazyLoad Image--fadeIn">
+          
+        </div>
+        <div class="cell_title">
+          Men's
+        </div>
+      	<div class="cell_price">
+          Shop Now
+      	</div>    
+    </a>
+    
+  
+  
+  
+</div>
+  {%comment%}
+  <span class="category-next-btn">
+    <svg viewBox="0 0 100 100">
+      <path d="M 20,50 L 60,90 L 60,85 L 25,50  L 60,15 L 60,10 Z" class="arrow" transform="translate(100, 100) rotate(180) ">
+      </path>
+    </svg>
+{%endcomment%}
+
+</div>
+  </div>
+ 
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Category Section",
+    "settings": [
+  			{
+  				"type":"text",
+  				"id":"category_title",
+  				"label":"Title"
+  			}
+  		],
+	"presets":[
+		{
+			"name":"Category Carousel"
+		}
+
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

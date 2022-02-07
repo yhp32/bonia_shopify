@@ -1,0 +1,160 @@
+<style>
+
+    .intro-w-cta{
+        text-align:center;
+      	margin:80px auto;
+      	max-width:500px;
+    }
+    
+    .intro-w-cta-title{
+        font-family:Sangbleu-Sans;
+      	font-size:40px;
+      	margin-bottom:10px;
+    }
+  
+  	.intro-w-cta-text{
+      	margin:0 20px 40px 20px;
+  		
+      font-size:15px;
+      font-family:Sangbleu-Sans;
+  	} 
+
+   
+  .button-same-size{
+	display:flex;
+    margin-left:25px;
+    margin-right:25px;
+    
+    
+  }
+  
+
+  
+  
+  @media screen and (max-width:400px){
+  
+    .button-same-size{
+    	flex-direction:column;
+      	margin-left:50px;
+      	margin-right:50px;
+    }
+    
+    .intro-w-cta-title{
+        font-family:Sangbleu;
+      	font-size:30px;
+      	margin-bottom:10px;
+    }
+    
+    .intro-w-cta{
+        
+      	
+      	
+    }
+    
+  
+  }
+  
+
+</style>
+
+
+
+	<section id="section-{{ section.id }}" data-section-id={{section.id}}>
+
+
+    {%- if section.settings.intro_with_cta_title != blank-%}
+    <h2 class="intro-w-cta-title">
+        {{section.settings.intro_with_cta_title}}
+    </h2>
+    {%- endif-%}
+
+    {%- if section.settings.intro_with_cta_text != blank-%}
+    <div class="intro-w-cta-text">
+        {{section.settings.intro_with_cta_text}}
+    </div>
+     {%- endif-%}
+
+	{%- if section.settings.button_1_text != blank and section.settings.button_2_text != blank -%}<div class="button-same-size">{%- endif-%}
+    {%- if section.settings.button_1_text != blank-%}
+
+    <a href="{{section.settings.button_link_1}}" class="cta-btn btn-outline">
+    {{section.settings.button_1_text}}
+    </a>
+
+    {%- endif-%}
+
+    {%- if section.settings.button_2_text != blank-%}
+
+    <a href="{{section.settings.button_link_2}}" class="cta-btn btn-outline">
+    {{section.settings.button_2_text}}
+  	</a>
+
+    {%- endif- %}
+    {%- if section.settings.button_1_text != blank and section.settings.button_2_text != blank -%}
+	</div>
+	{%- endif -%}
+                                                                        
+    </section>                                                                   	
+
+
+
+{% schema %}
+
+{
+    "name":"Intro with CTA",
+	"class":"intro-w-cta",
+    "settings":[
+        {
+            "type":"text",
+            "id":"intro_with_cta_title",
+            "label":"Title",
+            "default":"Enter your title"
+        
+        },
+        {
+            "type":"richtext",
+            "id":"intro_with_cta_text",
+            "label":"Introduction",
+			"default":"<p>Tell your audience about your stories</p>"
+
+        },
+        {
+            "type":"text",
+            "id":"button_1_text",
+            "label":"Button 1"
+        },
+        {
+            "type":"url",
+            "id":"button_link_1",
+            "label":"Button 1 Link"
+
+        },
+        {
+            "type":"text",
+            "id":"button_2_text",
+            "label":"Button 2"
+        },
+        {
+            "type":"url",
+            "id":"button_link_2",
+            "label":"Button 2 Link"
+
+        }
+
+
+
+    ],
+    "presets":[
+
+		{
+        	"name":"Intro with CTA"
+		}
+
+    ]
+
+
+}
+
+
+
+{% endschema %}

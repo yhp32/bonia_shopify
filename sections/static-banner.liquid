@@ -1,0 +1,337 @@
+
+<style>
+  
+  
+.static-banner-title{
+    font-family:Sangbleu-Sans;
+  	font-size:45px;
+    color:white;
+  	margin:0px 10px 10px 10px;
+  	
+}
+  
+  .static-banner-text{
+  	font-size:20px;
+    color:white;
+    margin:0 5px;
+  }
+  
+ .static-banner img{
+  	width:100%;
+    height:100%;
+   	object-fit:cover;
+  }
+  
+  .static-banner-btn{
+    justify-content:center;
+    margin:50px;
+    font-weight:800;
+  }
+  
+  .static-banner-btn a{
+  	max-width:200px;
+    
+  }
+ .static-banner-image{
+     height:calc(var(--window-height) - (var(--header-height) * var(--header-is-not-transparent,0)) - var(--announcement-bar-height,0px));
+	position:relative;
+ }
+
+  .static-banner video{
+  
+  height:calc(var(--window-height) - (var(--header-height) * var(--header-is-not-transparent,0)) - var(--announcement-bar-height,0px));
+	position:relative;}
+  
+  
+  {%- if section.settings.title_only == true -%}
+  
+  .banner-content{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,50%);
+  	text-align:center;
+  	width:100%;
+ 	max-width:800px;
+  	animation: fadeUp 2s;
+  	
+  	
+  }
+  
+  {%- else -%}
+.banner-content{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,10%);
+  	text-align:center;
+  	width:100%;
+ 	max-width:800px;
+  	animation: fadeUp 2s;
+  	
+  	
+}
+  {%- endif -%}
+ 
+
+
+{%- if section.settings.title_only == true -%}
+  
+  @keyframes fadeUp {
+    0% {
+    filter: alpha(opacity=0);
+    opacity: 0;
+    transform: translate(-50%, 60%);
+}
+100% {
+    filter: alpha(opacity=100);
+    opacity: 1;
+    transform: translate(-50%, 50%);
+}
+}
+  
+  {%- else -%}
+@keyframes fadeUp {
+    0% {
+    filter: alpha(opacity=0);
+    opacity: 0;
+    transform: translate(-50%, 20%);
+}
+100% {
+    filter: alpha(opacity=100);
+    opacity: 1;
+    transform: translate(-50%, 10%);
+}
+}
+  {%- endif -%}
+  
+ 
+
+  #myVideo{
+  	width:100%;
+    
+    object-fit:cover;
+  }
+  
+  @media screen and (max-width:640px){
+    
+    {%- if section.settings.title_only == true -%}
+  
+    .banner-content{
+    top:50%;
+    }
+  
+  {%- else -%}
+	.banner-content{
+    top:40%;
+    }
+  {%- endif -%}
+  
+  	
+    .static-banner-title{
+    	font-size:25px;
+      	margin-left:10px;
+      	margin-right:10px;
+    }
+    .static-banner-text{
+  	font-size:14px;
+     margin:0px 30px
+    
+    
+  }
+    .static-banner-btn{
+    	margin:50px 20px;
+    }
+    
+    .static-banner-btn a{
+    	font-size:11px;
+      	
+    }
+  }
+  
+  @media screen and (max-width:400px){
+    
+   
+  	
+    .banner-content .button-same-size{
+    	margin-left:auto;
+      	margin-right:auto;
+      	width:200px;
+      	
+    }
+  }
+  
+  
+  
+</style>
+
+
+
+{%- assign desktop_image = section.settings.desktop_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+{%- assign mobile_image = section.settings.mobile_image | default: section.settings.desktop_image -%}
+
+
+<div class="static-banner" >
+  
+  {%- if section.settings.banner_type == 'video' -%}
+   <video class="{%if section.settings.image_overlay == true %}Image--contrast{% endif %}"playsinline webkit-playsinline muted autoplay  loop id="myVideo" poster="{{section.settings.video_poster}}">
+  		<source src="{{section.settings.video_link}}" type="video/mp4">
+	</video>
+ 
+  
+  {% else %}
+   
+  <div class="static-banner-image {%if section.settings.image_overlay == true %}Image--contrast{% endif %}">
+
+    {%- if desktop_image -%}
+     <img 
+        src="{{ desktop_image | img_url:'1400x' }}"
+        data-src="{{ desktop_image }}"
+        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
+        data-sizes="auto"
+        data-parent-fit="cover"
+        alt="{{ desktop_image.alt }}"
+        class="lazyload Image--lazyLoad Image--fadeIn hidden-phone">
+   
+    {%- endif -%}
+
+    {%- if mobile_image -%}
+     <img 
+        src="{{ mobile_image | img_url:'1x1' }}"
+        data-src="{{ mobile_image | img_url:'x800'}}"
+        data-widths="[400, 600, 800]"
+        data-sizes="auto"
+        data-parent-fit="cover"
+        alt="{{ mobile_image.alt }}"
+        class="lazyload Image--lazyLoad Image--fadeIn hidden-tablet-and-up">
+    
+    {%- endif -%}
+      
+  </div>
+  {% endif %}
+ 
+
+    
+    <div class="banner-content">
+    <h1 class="static-banner-title">
+    {{section.settings.banner_title}}
+    </h1>
+    <div class="static-banner-text">
+    {{section.settings.banner_text}}
+      
+    </div>
+      
+    <div class="static-banner-btn {%if section.settings.link_1_text != blank and section.settings.link_2_text != blank%} button-same-size{%endif%}">
+	{%- if section.settings.link_1_text != blank -%}
+    <a href="{{section.settings.link_1}}" class="cta-btn">{{section.settings.link_1_text}}</a>
+    {%- endif -%}
+    {%- if section.settings.link_2_text != blank -%}
+    <a href="{{section.settings.link_2}}" class="cta-btn">{{section.settings.link_2_text}}</a>
+	{%- endif -%}
+    </div>
+      
+    
+      
+  </div>
+  
+</div>
+
+
+{%- schema -%}
+    {
+        "name":"Static Banner",
+        "settings":[
+			{
+ 			 "type": "select",
+ 			 "id": "banner_type",
+  			 "label": "Choose image or video",
+  			 "options": [
+   					 {
+      					"value": "image",
+      					"label": "Image"
+   					 },
+   					 {
+     				    "value": "video",
+      					"label": "Video"
+   					 }
+  					]
+			 },
+			{
+				"type":"text",
+				"id":"video_link",
+				"label":"Video Link"
+			},
+			{
+				"type":"text",
+				"id":"video_poster",
+				"label":"Video Poster"
+			},
+            {
+                "type":"image_picker",
+                "id":"desktop_image",
+                "label":"Desktop Image"
+            },
+            {
+                "type":"image_picker",
+                "id":"mobile_image",
+                "label":"Mobile Image"
+            },
+			{
+				"type":"checkbox",
+				"id":"image_overlay",
+				"label":"Image Overlay"
+			},
+            {
+                "type":"text",
+                "id":"banner_title",
+                "label":"Title"
+            },
+			{
+				"type":"checkbox",
+				"id":"title_only",
+				"label":"Title Only"
+			},
+            {
+                "type":"richtext",
+                "id":"banner_text",
+                "label":"Introduction"
+            },
+            {
+                "type":"text",
+                "id":"link_1_text",
+                "label":"Button 1"
+            },
+            {
+                "type":"url",
+                "id":"link_1",
+                "label":"Link"
+            },
+            {
+                "type":"text",
+                "id":"link_2_text",
+                "label":"Button 2"
+            },
+            {
+                "type":"url",
+                "id":"link_2",
+                "label":"Link"
+            }
+
+
+        ],
+        "presets":[
+            {
+                "name":"Static Banner"
+
+            }
+
+
+        ]
+
+
+    }
+
+
+
+
+{%- endschema -%}
