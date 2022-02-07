@@ -26,10 +26,12 @@
     "1633086791d19b8d47": {
       "type": "two-column-images",
       "settings": {
+        "img_1": "shopify:\/\/shop_images\/Id_Homepage_Women_V2.jpg",
         "label_1": "Women",
-        "link_1": "",
+        "link_1": "shopify:\/\/collections\/women-1",
+        "img_2": "shopify:\/\/shop_images\/Id_Homepage_Men.jpg",
         "label_2": "Men",
-        "link_2": ""
+        "link_2": "shopify:\/\/collections\/men-1"
       }
     },
     "1633087079014f9a25": {
