@@ -1,1 +1,590 @@
-{"current":{"heading_color":"#1c1b1b","text_color":"#1c1b1b","text_light_color":"#6a6a6a","link_color":"#6a6a6a","background":"#ffffff","light_background":"#ffffff","product_on_sale_color":"#f94c43","button_background":"#1c1b1b","button_text_color":"#ffffff","header_background":"#ffffff","header_heading_color":"#1c1b1b","header_light_color":"#6a6a6a","footer_background":"#ffffff","footer_heading_color":"#1c1b1b","footer_text_color":"#6a6a6a","navigation_background":"#ffffff","navigation_text_color":"#000000","newsletter_popup_background":"#1c1b1b","newsletter_popup_text_color":"#ffffff","secondary_elements_background":"#1c1b1b","secondary_elements_text_color":"#ffffff","label_1_text":"","label_1_color":"#939393","label_2_text":"","label_3_text":"","label_4_text":"","heading_font":"lato_n4","heading_size":"normal","uppercase_heading":false,"text_font":"lato_n4","base_text_font_size":15,"color_swatch_config":"Apricot: apricot.png\nAtlantic: atlantic.png\nBlack: black.png\nBlue: blue.png\nBlush Pink: blush-pink.png\nBronze: bronze.png\nBrown:brown.png\nChestnut: chestnut.png\nChoccy: choccy.png\nDark Blue: dark-blue.png\nDark Brown: dark-brown.png\nDark Coffee: dark-coffee.png\nDark Grey: dark-grey.png\nDark Spring: dark-spring.png\nDark Yellow:dark-yellow.png\nGrey: grey.png\nGreyish Blue:greyish-blue.png\nGreyish Green:greyish-green.png\nLatte:latte.png\nLight Blue:light-blue.png\nLight Pink:light-pink.png\nLight Purple:light-purple.png\nMaroon:maroon.png\nMedium Beige:medium-beige.png\nMedium Brown:medium-brown.png\nMedium Grey:medium-grey.png\nMidnight Blue:midnight-blue.png\nMint:mint.png\nNavy Blue:navy-blue.png\nNude:nude.png\nOrange:orange.png\nPale Green:pale-green.png\nPink:pink.png\nQuiet Wave:quiet-wave.png\nRed:red.png\nWhite:white.png\nYellow:yellow.png\nTaupe:taupe.png\nGolden Harvest: golden-harvest.png\nNero:nero.png\nEmerald:emerald.png\nGinger Biscuit: ginger-biscuit.png\nGreen Wonder: green-wonder.png\nDark Spring:dark-spring.png\nAtlantic: atlantic.png\nPutty Pink: putty-pink.png\nGood Grey: good-grey.png\nLime:lime.png\nPale Green: pale-green.png\nBrown: brown.png\nApricot: apricot.png\nAqua:aqua.png\nBeige:beige.png\nBlue:blue.png\nFuchsia:fuchsia.png\nCucumber:cucumber.png\nAI Aqua:ai-aqua.png\nRed glow:red-glow.png\nMagma orange:magma-orange.png\nLavender silk:lavender-silk.png\nMineral yellow:mineral-yellow.png\nVinaigrette:vinaigrette.png\nLiving:living.png\nFoglia:foglia.png\nSepia:sepia.png\nOpticwhite:optic-white.png\nSilver white:silver-white.png\nAloe gel:aloe-gel.png\nPurple paste:purple-paste.png\nPinky clay:pinky-clay.png\nButter:butter.png\nClay II:clay-II.png\nPink amethyst:pink-amethyst.png","show_page_transition":true,"show_image_zooming":false,"search_mode":"product,article","product_show_price_on_hover":false,"product_show_secondary_image":true,"product_info_alignment":"center","product_image_size":"natural","product_list_horizontal_spacing":"small","product_list_vertical_spacing":"small","cart_type":"drawer","cart_enable_notes":true,"cart_show_free_shipping_threshold":false,"cart_free_shipping_threshold":"50","social_facebook":"","social_instagram":"https:\/\/www.instagram.com\/bonia__official","social_youtube":"https:\/\/www.youtube.com\/c\/BONIAOfficial","favicon":"shopify:\/\/shop_images\/BONIA_Favicon.png","checkout_logo_image":"shopify:\/\/shop_images\/BONIA_Logo_0edc0dfd-ece3-4e36-aa2e-af8d89e32b24.png","checkout_logo_position":"center","checkout_logo_size":"small","checkout_body_background_color":"#ffffff","checkout_input_background_color_mode":"white","checkout_sidebar_background_color":"#efefef","checkout_accent_color":"#1c1b1b","checkout_button_color":"#1c1b1b","sections":{"sidebar-menu":{"type":"sidebar-menu","settings":{"primary_menu":"main-menu","secondary_menu":"customer-care","show_social_media":true}},"announcement":{"type":"announcement","settings":{"enable_bar":true,"home_page_only":false,"background":"#000000","text_color":"#ffffff","content_1":"Valentine’s Day Special: Up to 20% OFF selected styles until 14 Feb 2022 →","link_1":"shopify:\/\/collections\/valentines-day-special","content_2":"","link_2":""}},"header":{"type":"header","blocks":{"55323ab1-48ef-4ef5-8e27-56523487a415":{"type":"mega_menu","settings":{"navigation_mega_menu":"what's new","push_1_image":"shopify:\/\/shop_images\/MegaMenu_Venice.jpg","push_1_heading":"Venice Platinum Satchel XS","push_1_subheading":"","push_1_url":"shopify:\/\/products\/venice-platinum-satchel-xs","push_2_heading":"Example heading","push_2_subheading":"Example sub-heading","push_2_url":""}},"24b1ac10-b4f8-416c-a4fb-92410c81428f":{"type":"mega_menu","settings":{"navigation_mega_menu":"","push_1_image":"shopify:\/\/shop_images\/MegaMenu_Wanderland-1.png","push_1_heading":"Wanderland","push_1_subheading":"Escape The Everyday","push_1_url":"","push_2_heading":"Example heading","push_2_subheading":"Example sub-heading","push_2_url":""}},"fe1af85f-c065-42b2-b1d1-84ef7f3f1108":{"type":"mega_menu","settings":{"navigation_mega_menu":"women","push_1_image":"shopify:\/\/shop_images\/MegaMenu_Miley.jpg","push_1_heading":"Miley Sling Bag S","push_1_subheading":"","push_1_url":"https:\/\/bonia.com.sg\/products\/miley-sling-bag-s?variant=41308805398679","push_2_heading":"Example heading","push_2_subheading":"Example sub-heading","push_2_url":""}},"a716f439-1b7e-465f-b0c9-864a70a945cc":{"type":"mega_menu","settings":{"navigation_mega_menu":"men","push_1_image":"shopify:\/\/shop_images\/MegaMenu_SartoPouch.jpg","push_1_heading":"Sarto Belt Pouch","push_1_subheading":"","push_1_url":"shopify:\/\/products\/sarto-belt-pouch-1","push_2_heading":"Example heading","push_2_subheading":"Example sub-heading","push_2_url":""}},"f6a51df2-a9e2-4d24-a1ce-7a31d1367465":{"type":"mega_menu","settings":{"navigation_mega_menu":"collection","push_1_heading":"Example heading","push_1_subheading":"Example sub-heading","push_1_url":"","push_2_heading":"Example heading","push_2_subheading":"Example sub-heading","push_2_url":""}},"5eaf8b87-32d5-483a-b25b-7f3753de5d46":{"type":"mega_menu","settings":{"navigation_mega_menu":"sale","push_1_image":"shopify:\/\/shop_images\/Menu_Sale_Aida.jpg","push_1_heading":"Monogram Aida Mini Trunk XS","push_1_subheading":"","push_1_url":"https:\/\/bonia.com.sg\/collections\/promotion-women\/products\/monogram-aida-mini-trunk-xs?variant=36936450179223","push_2_heading":"Example heading","push_2_subheading":"Example sub-heading","push_2_url":""}},"6ccc6467-65a9-402b-96cb-a6406753ad0d":{"type":"mega_menu","settings":{"navigation_mega_menu":"HABITOLOGIE","push_1_image":"shopify:\/\/shop_images\/Jan_2022_SG_Mega_Menu_Habitologie.jpg","push_1_heading":"Elle Backpack S","push_1_subheading":"","push_1_url":"https:\/\/bonia.com.sg\/products\/elle-backpack-s?variant=41555048398999","push_2_heading":"Example heading","push_2_subheading":"Example sub-heading","push_2_url":""}}},"block_order":["55323ab1-48ef-4ef5-8e27-56523487a415","24b1ac10-b4f8-416c-a4fb-92410c81428f","fe1af85f-c065-42b2-b1d1-84ef7f3f1108","a716f439-1b7e-465f-b0c9-864a70a945cc","f6a51df2-a9e2-4d24-a1ce-7a31d1367465","5eaf8b87-32d5-483a-b25b-7f3753de5d46","6ccc6467-65a9-402b-96cb-a6406753ad0d"],"settings":{"use_sticky_header":true,"logo":"shopify:\/\/shop_images\/BONIA_Logo_0edc0dfd-ece3-4e36-aa2e-af8d89e32b24.png","logo_max_width":105,"mobile_logo_max_width":105,"show_currency_selector":true,"show_locale_selector":true,"navigation_menu":"mega-menu","navigation_style":"logoLeft","show_icons":true,"enable_transparent_header":false,"enable_transparent_header_collection":false,"show_transparent_header_border":false,"transparent_text_color":"#ffffff"}},"footer":{"type":"footer","blocks":{"993c1c3a-bc15-45c4-8474-93f489d6f3f1":{"type":"links","settings":{"menu":"customer-care"}},"footer-1":{"type":"links","settings":{"menu":"shipping-services"}},"5edf2816-85bb-4357-b0b2-0fd103989c77":{"type":"links","settings":{"menu":"corporate-information"}},"cc9ab822-156d-4639-addb-c2dfc172a427":{"type":"newsletter","settings":{"title":"Newsletter","content":"<p>A short sentence describing what someone will receive by subscribing<\/p>"}},"3b375c46-4f77-4b78-825a-303647bab1cc":{"type":"text","settings":{"title":"Follow Us At","content":"","show_social_media":true}}},"block_order":["993c1c3a-bc15-45c4-8474-93f489d6f3f1","footer-1","5edf2816-85bb-4357-b0b2-0fd103989c77","cc9ab822-156d-4639-addb-c2dfc172a427","3b375c46-4f77-4b78-825a-303647bab1cc"],"settings":{"show_payment_methods":true,"show_currency_selector":true,"show_locale_selector":true}},"popup":{"type":"popup","settings":{"show_popup":false,"show_only_on_index":true,"show_only_for_visitors":true,"show_only_once":true,"title":"Popup","content":"<p>You can use this popup to display some useful information to your customers.<\/p>","show_newsletter":true,"apparition_delay":5}}},"content_for_index":[]},"presets":{"Allure":{"heading_color":"#1c1b1b","text_color":"#1c1b1b","text_light_color":"#6a6a6a","link_color":"#6a6a6a","background":"#efefef","light_background":"#ffffff","product_on_sale_color":"#f94c43","button_background":"#1c1b1b","button_text_color":"#ffffff","header_background":"#ffffff","header_heading_color":"#1c1b1b","header_light_color":"#6a6a6a","footer_background":"#ffffff","footer_heading_color":"#1c1b1b","footer_text_color":"#6a6a6a","newsletter_popup_background":"#1c1b1b","newsletter_popup_text_color":"#ffffff","secondary_elements_background":"#1c1b1b","secondary_elements_text_color":"#ffffff","navigation_background":"#1c1b1b","navigation_text_color":"#ffffff","heading_font":"montserrat_n5","heading_size":"small","uppercase_heading":true,"text_font":"nunito_sans_n4","base_text_font_size":14,"show_page_transition":false,"search_mode":"product,article","product_show_price_on_hover":false,"product_show_secondary_image":false,"product_info_alignment":"center","product_image_size":"natural","product_list_horizontal_spacing":"medium","product_list_vertical_spacing":"small","cart_type":"drawer","cart_enable_notes":true,"cart_show_free_shipping_threshold":false,"cart_free_shipping_threshold":"50","checkout_logo_position":"center","checkout_logo_size":"small","checkout_body_background_color":"#ffffff","checkout_input_background_color_mode":"white","checkout_sidebar_background_color":"#efefef","checkout_accent_color":"#1c1b1b","checkout_button_color":"#1c1b1b","sections":{"sidebar-menu":{"type":"sidebar-menu","settings":{"primary_menu":"main-menu","show_social_media":true}},"announcement":{"type":"announcement","settings":{"background":"#000000","text_color":"#ffffff","content":"Announce something here"}},"header":{"type":"header","settings":{"use_sticky_header":true,"logo_max_width":140,"navigation_menu":"main-menu","navigation_style":"inline","enable_transparent_header":true,"transparent_text_color":"#ffffff"}},"footer":{"type":"footer","blocks":{"footer-0":{"type":"text","settings":{"title":"About the shop","content":"<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>","show_social_media":true}},"footer-1":{"type":"links","settings":{"menu":"footer"}},"footer-2":{"type":"newsletter","settings":{"title":"Newsletter","content":"<p>Subscribe to receive updates, access to exclusive deals, and more.<\/p>"}}},"block_order":["footer-0","footer-1","footer-2"],"settings":{"show_payment_methods":true}}}},"Couture":{"heading_color":"#5c5c5c","text_color":"#5c5c5c","text_light_color":"#939393","link_color":"#323232","background":"#ffffff","light_background":"#ffffff","product_on_sale_color":"#f94c43","button_background":"#5c5c5c","button_text_color":"#ffffff","header_background":"#ffffff","header_heading_color":"#5c5c5c","header_light_color":"#939393","footer_background":"#ffffff","footer_heading_color":"#5c5c5c","footer_text_color":"#939393","newsletter_popup_background":"#ffffff","newsletter_popup_text_color":"#1c1b1b","secondary_elements_background":"#5c5c5c","secondary_elements_text_color":"#ffffff","navigation_background":"#ffffff","navigation_text_color":"#5c5c5c","heading_font":"futura_n4","heading_size":"large","uppercase_heading":false,"text_font":"century_gothic_n4","base_text_font_size":15,"show_page_transition":false,"search_mode":"product,article","product_show_price_on_hover":true,"product_show_secondary_image":false,"product_info_alignment":"left","product_image_size":"natural","product_list_horizontal_spacing":"small","product_list_vertical_spacing":"small","cart_type":"drawer","cart_enable_notes":true,"cart_show_free_shipping_threshold":false,"cart_free_shipping_threshold":"50","checkout_logo_position":"center","checkout_logo_size":"small","checkout_body_background_color":"#fff","checkout_input_background_color_mode":"white","checkout_sidebar_background_color":"#fafafa","checkout_accent_color":"#323232","checkout_button_color":"#5c5c5c","sections":{"sidebar-menu":{"type":"sidebar-menu","settings":{"primary_menu":"main-menu","show_social_media":true}},"announcement":{"type":"announcement","settings":{"background":"#f3f3f3","text_color":"#5c5c5c","content":"Announce something here"}},"header":{"type":"header","settings":{"use_sticky_header":true,"logo_max_width":140,"navigation_menu":"main-menu","navigation_style":"center","enable_transparent_header":true,"transparent_text_color":"#ffffff"}},"footer":{"type":"footer","blocks":{"footer-0":{"type":"text","settings":{"title":"About the shop","content":"<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>","show_social_media":true}},"footer-1":{"type":"links","settings":{"menu":"footer"}},"footer-2":{"type":"newsletter","settings":{"title":"Newsletter","content":"<p>Subscribe to receive updates, access to exclusive deals, and more.<\/p>"}}},"block_order":["footer-0","footer-1","footer-2"],"settings":{"show_payment_methods":true}}}},"Vogue":{"heading_color":"#303030","text_color":"#303030","text_light_color":"#595959","link_color":"#000000","background":"#ffffff","light_background":"#ffffff","product_on_sale_color":"#f94c43","button_background":"#f5db8b","button_text_color":"#303030","header_background":"#ffffff","header_heading_color":"#303030","header_light_color":"#595959","footer_background":"#ffffff","footer_heading_color":"#303030","footer_text_color":"#595959","navigation_background":"#ffffff","navigation_text_color":"#303030","newsletter_popup_background":"#ffffff","newsletter_popup_text_color":"#303030","secondary_elements_background":"#fce7a8","secondary_elements_text_color":"#303030","heading_font":"din_neuzeit_grotesk_n3","heading_size":"small","uppercase_heading":true,"text_font":"futura_n4","base_text_font_size":14,"show_page_transition":false,"show_element_staggering":false,"search_mode":"product,article","product_show_price_on_hover":true,"product_show_secondary_image":false,"product_info_alignment":"center","product_image_size":"natural","product_list_horizontal_spacing":"medium","product_list_vertical_spacing":"small","cart_type":"drawer","cart_enable_notes":true,"cart_show_free_shipping_threshold":false,"cart_free_shipping_threshold":"50","checkout_logo_position":"left","checkout_logo_size":"medium","checkout_body_background_color":"#fff","checkout_input_background_color_mode":"white","checkout_sidebar_background_color":"#fafafa","checkout_accent_color":"#a17c5e","checkout_button_color":"#454545","sections":{"sidebar-menu":{"type":"sidebar-menu","settings":{"primary_menu":"main-menu","show_social_media":true}},"announcement":{"type":"announcement","settings":{"background":"#f1e4d8","text_color":"#343434","content":"Announce something here"}},"header":{"type":"header","settings":{"use_sticky_header":true,"logo_max_width":140,"navigation_menu":"main-menu","navigation_style":"inline","enable_transparent_header":true,"transparent_text_color":"#ffffff"}},"footer":{"type":"footer","blocks":{"footer-0":{"type":"text","settings":{"title":"About the shop","content":"<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>","show_social_media":true}},"footer-1":{"type":"links","settings":{"menu":"footer"}},"footer-2":{"type":"newsletter","settings":{"title":"Newsletter","content":"<p>Subscribe to receive updates, access to exclusive deals, and more.<\/p>"}}},"block_order":["footer-0","footer-1","footer-2"],"settings":{"show_payment_methods":true}}}}}}
+{
+  "current": {
+    "heading_color": "#1c1b1b",
+    "text_color": "#1c1b1b",
+    "text_light_color": "#6a6a6a",
+    "link_color": "#6a6a6a",
+    "background": "#ffffff",
+    "light_background": "#ffffff",
+    "product_on_sale_color": "#f94c43",
+    "button_background": "#1c1b1b",
+    "button_text_color": "#ffffff",
+    "header_background": "#ffffff",
+    "header_heading_color": "#1c1b1b",
+    "header_light_color": "#6a6a6a",
+    "footer_background": "#ffffff",
+    "footer_heading_color": "#1c1b1b",
+    "footer_text_color": "#6a6a6a",
+    "navigation_background": "#ffffff",
+    "navigation_text_color": "#000000",
+    "newsletter_popup_background": "#1c1b1b",
+    "newsletter_popup_text_color": "#ffffff",
+    "secondary_elements_background": "#1c1b1b",
+    "secondary_elements_text_color": "#ffffff",
+    "label_1_text": "",
+    "label_1_color": "#939393",
+    "label_2_text": "",
+    "label_3_text": "",
+    "label_4_text": "",
+    "heading_font": "lato_n4",
+    "heading_size": "normal",
+    "uppercase_heading": false,
+    "text_font": "lato_n4",
+    "base_text_font_size": 15,
+    "color_swatch_config": "Apricot: apricot.png\nAtlantic: atlantic.png\nBlack: black.png\nBlue: blue.png\nBlush Pink: blush-pink.png\nBronze: bronze.png\nBrown:brown.png\nChestnut: chestnut.png\nChoccy: choccy.png\nDark Blue: dark-blue.png\nDark Brown: dark-brown.png\nDark Coffee: dark-coffee.png\nDark Grey: dark-grey.png\nDark Spring: dark-spring.png\nDark Yellow:dark-yellow.png\nGrey: grey.png\nGreyish Blue:greyish-blue.png\nGreyish Green:greyish-green.png\nLatte:latte.png\nLight Blue:light-blue.png\nLight Pink:light-pink.png\nLight Purple:light-purple.png\nMaroon:maroon.png\nMedium Beige:medium-beige.png\nMedium Brown:medium-brown.png\nMedium Grey:medium-grey.png\nMidnight Blue:midnight-blue.png\nMint:mint.png\nNavy Blue:navy-blue.png\nNude:nude.png\nOrange:orange.png\nPale Green:pale-green.png\nPink:pink.png\nQuiet Wave:quiet-wave.png\nRed:red.png\nWhite:white.png\nYellow:yellow.png\nTaupe:taupe.png\nGolden Harvest: golden-harvest.png\nNero:nero.png\nEmerald:emerald.png\nGinger Biscuit: ginger-biscuit.png\nGreen Wonder: green-wonder.png\nDark Spring:dark-spring.png\nAtlantic: atlantic.png\nPutty Pink: putty-pink.png\nGood Grey: good-grey.png\nLime:lime.png\nPale Green: pale-green.png\nBrown: brown.png\nApricot: apricot.png\nAqua:aqua.png\nBeige:beige.png\nBlue:blue.png\nFuchsia:fuchsia.png\nCucumber:cucumber.png\nAI Aqua:ai-aqua.png\nRed glow:red-glow.png\nMagma orange:magma-orange.png\nLavender silk:lavender-silk.png\nMineral yellow:mineral-yellow.png\nVinaigrette:vinaigrette.png\nLiving:living.png\nFoglia:foglia.png\nSepia:sepia.png\nOpticwhite:optic-white.png\nSilver white:silver-white.png\nAloe gel:aloe-gel.png\nPurple paste:purple-paste.png\nPinky clay:pinky-clay.png\nButter:butter.png\nClay II:clay-II.png\nPink amethyst:pink-amethyst.png",
+    "show_page_transition": true,
+    "show_image_zooming": false,
+    "search_mode": "product,article",
+    "product_show_price_on_hover": false,
+    "product_show_secondary_image": true,
+    "product_info_alignment": "center",
+    "product_image_size": "natural",
+    "product_list_horizontal_spacing": "small",
+    "product_list_vertical_spacing": "small",
+    "cart_type": "drawer",
+    "cart_enable_notes": true,
+    "cart_show_free_shipping_threshold": false,
+    "cart_free_shipping_threshold": "50",
+    "social_facebook": "",
+    "social_instagram": "https:\/\/www.instagram.com\/bonia__official",
+    "social_youtube": "https:\/\/www.youtube.com\/c\/BONIAOfficial",
+    "favicon": "shopify:\/\/shop_images\/BONIA_Favicon.png",
+    "checkout_logo_image": "shopify:\/\/shop_images\/BONIA_Logo.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "small",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_color": "#efefef",
+    "checkout_accent_color": "#1c1b1b",
+    "checkout_button_color": "#1c1b1b",
+    "sections": {
+      "sidebar-menu": {
+        "type": "sidebar-menu",
+        "settings": {
+          "primary_menu": "main-menu",
+          "secondary_menu": "customer-care",
+          "show_social_media": true
+        }
+      },
+      "announcement": {
+        "type": "announcement",
+        "settings": {
+          "enable_bar": true,
+          "home_page_only": false,
+          "background": "#000000",
+          "text_color": "#ffffff",
+          "content_1": "Valentine’s Day Special: Up to 20% OFF selected styles until 14 Feb 2022 →",
+          "link_1": "shopify:\/\/collections\/valentines-day-special",
+          "content_2": "",
+          "link_2": ""
+        }
+      },
+      "header": {
+        "type": "header",
+        "blocks": {
+          "55323ab1-48ef-4ef5-8e27-56523487a415": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "what's new",
+              "push_1_heading": "Venice Platinum Satchel XS",
+              "push_1_subheading": "",
+              "push_1_url": "shopify:\/\/products\/venice-platinum-satchel-xs",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          },
+          "24b1ac10-b4f8-416c-a4fb-92410c81428f": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "",
+              "push_1_heading": "Wanderland",
+              "push_1_subheading": "Escape The Everyday",
+              "push_1_url": "",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          },
+          "fe1af85f-c065-42b2-b1d1-84ef7f3f1108": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "women",
+              "push_1_heading": "Miley Sling Bag S",
+              "push_1_subheading": "",
+              "push_1_url": "https:\/\/bonia.com.sg\/products\/miley-sling-bag-s?variant=41308805398679",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          },
+          "a716f439-1b7e-465f-b0c9-864a70a945cc": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "men",
+              "push_1_heading": "Sarto Belt Pouch",
+              "push_1_subheading": "",
+              "push_1_url": "shopify:\/\/products\/sarto-belt-pouch-1",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          },
+          "f6a51df2-a9e2-4d24-a1ce-7a31d1367465": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "collection",
+              "push_1_heading": "Example heading",
+              "push_1_subheading": "Example sub-heading",
+              "push_1_url": "",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          },
+          "5eaf8b87-32d5-483a-b25b-7f3753de5d46": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "sale",
+              "push_1_heading": "Monogram Aida Mini Trunk XS",
+              "push_1_subheading": "",
+              "push_1_url": "https:\/\/bonia.com.sg\/collections\/promotion-women\/products\/monogram-aida-mini-trunk-xs?variant=36936450179223",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          },
+          "6ccc6467-65a9-402b-96cb-a6406753ad0d": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "HABITOLOGIE",
+              "push_1_heading": "Elle Backpack S",
+              "push_1_subheading": "",
+              "push_1_url": "https:\/\/bonia.com.sg\/products\/elle-backpack-s?variant=41555048398999",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "55323ab1-48ef-4ef5-8e27-56523487a415",
+          "24b1ac10-b4f8-416c-a4fb-92410c81428f",
+          "fe1af85f-c065-42b2-b1d1-84ef7f3f1108",
+          "a716f439-1b7e-465f-b0c9-864a70a945cc",
+          "f6a51df2-a9e2-4d24-a1ce-7a31d1367465",
+          "5eaf8b87-32d5-483a-b25b-7f3753de5d46",
+          "6ccc6467-65a9-402b-96cb-a6406753ad0d"
+        ],
+        "settings": {
+          "use_sticky_header": true,
+          "logo": "shopify:\/\/shop_images\/BONIA_Logo.png",
+          "logo_max_width": 105,
+          "mobile_logo_max_width": 105,
+          "show_currency_selector": true,
+          "show_locale_selector": true,
+          "navigation_menu": "",
+          "navigation_style": "logoLeft",
+          "show_icons": true,
+          "enable_transparent_header": false,
+          "enable_transparent_header_collection": false,
+          "show_transparent_header_border": false,
+          "transparent_text_color": "#ffffff"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "993c1c3a-bc15-45c4-8474-93f489d6f3f1": {
+            "type": "links",
+            "settings": {
+              "menu": "customer-care"
+            }
+          },
+          "footer-1": {
+            "type": "links",
+            "settings": {
+              "menu": "shipping-services"
+            }
+          },
+          "5edf2816-85bb-4357-b0b2-0fd103989c77": {
+            "type": "links",
+            "settings": {
+              "menu": "corporate-information"
+            }
+          },
+          "cc9ab822-156d-4639-addb-c2dfc172a427": {
+            "type": "newsletter",
+            "settings": {
+              "title": "Newsletter",
+              "content": "<p>A short sentence describing what someone will receive by subscribing<\/p>"
+            }
+          },
+          "3b375c46-4f77-4b78-825a-303647bab1cc": {
+            "type": "text",
+            "settings": {
+              "title": "Follow Us At",
+              "content": "",
+              "show_social_media": true
+            }
+          }
+        },
+        "block_order": [
+          "993c1c3a-bc15-45c4-8474-93f489d6f3f1",
+          "footer-1",
+          "5edf2816-85bb-4357-b0b2-0fd103989c77",
+          "cc9ab822-156d-4639-addb-c2dfc172a427",
+          "3b375c46-4f77-4b78-825a-303647bab1cc"
+        ],
+        "settings": {
+          "show_payment_methods": true,
+          "show_currency_selector": true,
+          "show_locale_selector": true
+        }
+      },
+      "popup": {
+        "type": "popup",
+        "settings": {
+          "show_popup": false,
+          "show_only_on_index": true,
+          "show_only_for_visitors": true,
+          "show_only_once": true,
+          "title": "Popup",
+          "content": "<p>You can use this popup to display some useful information to your customers.<\/p>",
+          "show_newsletter": true,
+          "apparition_delay": 5
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
+  "presets": {
+    "Allure": {
+      "heading_color": "#1c1b1b",
+      "text_color": "#1c1b1b",
+      "text_light_color": "#6a6a6a",
+      "link_color": "#6a6a6a",
+      "background": "#efefef",
+      "light_background": "#ffffff",
+      "product_on_sale_color": "#f94c43",
+      "button_background": "#1c1b1b",
+      "button_text_color": "#ffffff",
+      "header_background": "#ffffff",
+      "header_heading_color": "#1c1b1b",
+      "header_light_color": "#6a6a6a",
+      "footer_background": "#ffffff",
+      "footer_heading_color": "#1c1b1b",
+      "footer_text_color": "#6a6a6a",
+      "newsletter_popup_background": "#1c1b1b",
+      "newsletter_popup_text_color": "#ffffff",
+      "secondary_elements_background": "#1c1b1b",
+      "secondary_elements_text_color": "#ffffff",
+      "navigation_background": "#1c1b1b",
+      "navigation_text_color": "#ffffff",
+      "heading_font": "montserrat_n5",
+      "heading_size": "small",
+      "uppercase_heading": true,
+      "text_font": "nunito_sans_n4",
+      "base_text_font_size": 14,
+      "show_page_transition": false,
+      "search_mode": "product,article",
+      "product_show_price_on_hover": false,
+      "product_show_secondary_image": false,
+      "product_info_alignment": "center",
+      "product_image_size": "natural",
+      "product_list_horizontal_spacing": "medium",
+      "product_list_vertical_spacing": "small",
+      "cart_type": "drawer",
+      "cart_enable_notes": true,
+      "cart_show_free_shipping_threshold": false,
+      "cart_free_shipping_threshold": "50",
+      "checkout_logo_position": "center",
+      "checkout_logo_size": "small",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_color": "#efefef",
+      "checkout_accent_color": "#1c1b1b",
+      "checkout_button_color": "#1c1b1b",
+      "sections": {
+        "sidebar-menu": {
+          "type": "sidebar-menu",
+          "settings": {
+            "primary_menu": "main-menu",
+            "show_social_media": true
+          }
+        },
+        "announcement": {
+          "type": "announcement",
+          "settings": {
+            "background": "#000000",
+            "text_color": "#ffffff"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "use_sticky_header": true,
+            "logo_max_width": 140,
+            "navigation_menu": "main-menu",
+            "navigation_style": "inline",
+            "enable_transparent_header": true,
+            "transparent_text_color": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "text",
+              "settings": {
+                "title": "About the shop",
+                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>",
+                "show_social_media": true
+              }
+            },
+            "footer-1": {
+              "type": "links",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "footer-2": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter",
+                "content": "<p>Subscribe to receive updates, access to exclusive deals, and more.<\/p>"
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2"
+          ],
+          "settings": {
+            "show_payment_methods": true
+          }
+        }
+      }
+    },
+    "Couture": {
+      "heading_color": "#5c5c5c",
+      "text_color": "#5c5c5c",
+      "text_light_color": "#939393",
+      "link_color": "#323232",
+      "background": "#ffffff",
+      "light_background": "#ffffff",
+      "product_on_sale_color": "#f94c43",
+      "button_background": "#5c5c5c",
+      "button_text_color": "#ffffff",
+      "header_background": "#ffffff",
+      "header_heading_color": "#5c5c5c",
+      "header_light_color": "#939393",
+      "footer_background": "#ffffff",
+      "footer_heading_color": "#5c5c5c",
+      "footer_text_color": "#939393",
+      "newsletter_popup_background": "#ffffff",
+      "newsletter_popup_text_color": "#1c1b1b",
+      "secondary_elements_background": "#5c5c5c",
+      "secondary_elements_text_color": "#ffffff",
+      "navigation_background": "#ffffff",
+      "navigation_text_color": "#5c5c5c",
+      "heading_font": "futura_n4",
+      "heading_size": "large",
+      "uppercase_heading": false,
+      "text_font": "century_gothic_n4",
+      "base_text_font_size": 15,
+      "show_page_transition": false,
+      "search_mode": "product,article",
+      "product_show_price_on_hover": true,
+      "product_show_secondary_image": false,
+      "product_info_alignment": "left",
+      "product_image_size": "natural",
+      "product_list_horizontal_spacing": "small",
+      "product_list_vertical_spacing": "small",
+      "cart_type": "drawer",
+      "cart_enable_notes": true,
+      "cart_show_free_shipping_threshold": false,
+      "cart_free_shipping_threshold": "50",
+      "checkout_logo_position": "center",
+      "checkout_logo_size": "small",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_accent_color": "#323232",
+      "checkout_button_color": "#5c5c5c",
+      "sections": {
+        "sidebar-menu": {
+          "type": "sidebar-menu",
+          "settings": {
+            "primary_menu": "main-menu",
+            "show_social_media": true
+          }
+        },
+        "announcement": {
+          "type": "announcement",
+          "settings": {
+            "background": "#f3f3f3",
+            "text_color": "#5c5c5c"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "use_sticky_header": true,
+            "logo_max_width": 140,
+            "navigation_menu": "main-menu",
+            "navigation_style": "center",
+            "enable_transparent_header": true,
+            "transparent_text_color": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "text",
+              "settings": {
+                "title": "About the shop",
+                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>",
+                "show_social_media": true
+              }
+            },
+            "footer-1": {
+              "type": "links",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "footer-2": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter",
+                "content": "<p>Subscribe to receive updates, access to exclusive deals, and more.<\/p>"
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2"
+          ],
+          "settings": {
+            "show_payment_methods": true
+          }
+        }
+      }
+    },
+    "Vogue": {
+      "heading_color": "#303030",
+      "text_color": "#303030",
+      "text_light_color": "#595959",
+      "link_color": "#000000",
+      "background": "#ffffff",
+      "light_background": "#ffffff",
+      "product_on_sale_color": "#f94c43",
+      "button_background": "#f5db8b",
+      "button_text_color": "#303030",
+      "header_background": "#ffffff",
+      "header_heading_color": "#303030",
+      "header_light_color": "#595959",
+      "footer_background": "#ffffff",
+      "footer_heading_color": "#303030",
+      "footer_text_color": "#595959",
+      "navigation_background": "#ffffff",
+      "navigation_text_color": "#303030",
+      "newsletter_popup_background": "#ffffff",
+      "newsletter_popup_text_color": "#303030",
+      "secondary_elements_background": "#fce7a8",
+      "secondary_elements_text_color": "#303030",
+      "heading_font": "din_neuzeit_grotesk_n3",
+      "heading_size": "small",
+      "uppercase_heading": true,
+      "text_font": "futura_n4",
+      "base_text_font_size": 14,
+      "show_page_transition": false,
+      "show_element_staggering": false,
+      "search_mode": "product,article",
+      "product_show_price_on_hover": true,
+      "product_show_secondary_image": false,
+      "product_info_alignment": "center",
+      "product_image_size": "natural",
+      "product_list_horizontal_spacing": "medium",
+      "product_list_vertical_spacing": "small",
+      "cart_type": "drawer",
+      "cart_enable_notes": true,
+      "cart_show_free_shipping_threshold": false,
+      "cart_free_shipping_threshold": "50",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_accent_color": "#a17c5e",
+      "checkout_button_color": "#454545",
+      "sections": {
+        "sidebar-menu": {
+          "type": "sidebar-menu",
+          "settings": {
+            "primary_menu": "main-menu",
+            "show_social_media": true
+          }
+        },
+        "announcement": {
+          "type": "announcement",
+          "settings": {
+            "background": "#f1e4d8",
+            "text_color": "#343434"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "use_sticky_header": true,
+            "logo_max_width": 140,
+            "navigation_menu": "main-menu",
+            "navigation_style": "inline",
+            "enable_transparent_header": true,
+            "transparent_text_color": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "footer-0": {
+              "type": "text",
+              "settings": {
+                "title": "About the shop",
+                "content": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme settings.<\/p>",
+                "show_social_media": true
+              }
+            },
+            "footer-1": {
+              "type": "links",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "footer-2": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter",
+                "content": "<p>Subscribe to receive updates, access to exclusive deals, and more.<\/p>"
+              }
+            }
+          },
+          "block_order": [
+            "footer-0",
+            "footer-1",
+            "footer-2"
+          ],
+          "settings": {
+            "show_payment_methods": true
+          }
+        }
+      }
+    }
+  }
+}
