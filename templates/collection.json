@@ -8,7 +8,7 @@
         "apply_overlay": true,
         "show_color_swatch": true,
         "show_vendor": false,
-        "collection_image_size": "large",
+        "collection_image_size": "normal",
         "show_sort_by": true,
         "show_layout_switch": false,
         "toolbar_position": "top",
