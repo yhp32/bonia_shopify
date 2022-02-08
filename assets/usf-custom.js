@@ -1,4 +1,4 @@
-// define templates for the Prestige theme
+// define templates for the Prestige 4.2 theme
 var _usfFilterBodyTemplate = /*inc_begin_filter-body*/
 `<!-- Range filter -->
 <div v-if="isRange" class="usf-facet-values usf-facet-range">
@@ -113,6 +113,11 @@ usf.templates = {
     <span class="usf-sr-summary" id="usf-sr-summary-temp" v-html="loader === true ? '&nbsp;' : usf.utils.format(term ? loc.productSearchResultWithTermSummary : loc.productSearchResultSummary, result.total, term)"></span>
     <usf-sr-banner v-if="result && result.extra && result.extra.banner && !result.extra.banner.isBottom" :banner="result.extra.banner"></usf-sr-banner>
 
+    <!-- Load previous -->
+    <div class="usf-sr-paging usf-sr-paging--top" v-if="itemsOffset && loader !== true && hasResults && usf.settings.search.more !== 'page'">
+        <button class="usf-load-more" :class="{'usf-with-loader': loader === 'prev'}" @click="onLoadPrev"><span v-html="loc.loadPrev"></span></button>        
+    </div>
+
     <div :class="(view === \'grid\' ? \'ProductList ProductList--grid ProductList--removeMargin Grid\' : \'list-view-items\') + \' usf-results prestige-usf-\' + view">
         <template v-if="loader===true">` + _usfSearchResultsSkeletonItemTpl + _usfSearchResultsSkeletonItemTpl +
         _usfSearchResultsSkeletonItemTpl + _usfSearchResultsSkeletonItemTpl +
@@ -137,6 +142,7 @@ usf.templates = {
                         <h1 class="EmptyState__Title Heading u-h5">
                             <span v-html="term ? usf.utils.format(loc.productSearchNoResults, term) : loc.productSearchNoResultsEmptyTerm"></span>
                         </h1>
+                        <button v-if="facetFilters" class="usf-btn usf-btn-action" v-html="loc.clearAllFilters" @click="usf.queryRewriter.removeAllFacetFilters"></button>
                     </div>
                 </div>
             </template>
@@ -166,19 +172,21 @@ usf.templates = {
 `,
 
     searchResultsGridViewItem: `
-<div class="usf-sr-product Grid__Cell" :class="['1/' + _usfSettingCollection.mobile_items_per_row + '--phone','1/' + _usfSettingCollection.tablet_items_per_row + '--tablet-and-up','1/' + _usfSettingCollection.desktop_items_per_row + '--desk']" :key="product.Id"
-    :product-selector="product.id">
+<div class="usf-sr-product Grid__Cell" :class="['1/' + _usfSettingCollection.mobile_items_per_row + '--phone','1/' + _usfSettingCollection.tablet_items_per_row + '--tablet-and-up','1/' + _usfSettingCollection.desktop_items_per_row + '--desk']" :data-usf-pid="product.id" :product-selector="product.id">
     <div class="ProductItem" style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
         <div class="ProductItem__Wrapper" >
-	        <a :href="productUrl" @click="onItemClick" @mouseover="onItemHover" @mouseleave="onItemLeave" class="ProductItem__ImageWrapper" :class="{'ProductItem__ImageWrapper--withAlternateImage':scaledHoverImageUrl}">
+	        <a :href="productUrl" @click="onItemClick" @mouseover="onItemHover" @mouseleave="onItemLeave" class="ProductItem__ImageWrapper usf-sr-product__image-container" :class="{'ProductItem__ImageWrapper--withAlternateImage':scaledHoverImageUrl}">
                 <div :class="'AspectRatio AspectRatio--' + (_usfSettingCollection.use_natural_size ? 'withFallback' :_usfSettingCollection.product_image_size)" :style="'max-width: '+(selectedImage.width ? selectedImage.width : 125)+'px; --aspect-ratio: ' + _usfGetImageRatio(selectedImage)+';' + 100/_usfGetImageRatio(selectedImage) + '%;'">
-                    <img key="new_p" v-if="_usfGlobalSettings.show_secondary_image && hoverImage" class="ProductItem__Image ProductItem__Image--alternate Image--lazyLoad Image--fadeIn" :data-widths="'[' + _usfImageWidths + ']'" data-sizes="auto" :data-srcset="_usfGetScaledImageUrl(scaledHoverImageUrl)" :data-src="_usfGetScaledImageUrl(scaledHoverImageUrl)">
+                    <img key="new_p" v-if="_usfGlobalSettings.show_secondary_image && scaledHoverImageUrl" class="ProductItem__Image ProductItem__Image--alternate Image--lazyLoad Image--fadeIn" :data-widths="'[' + _usfImageWidths + ']'" data-sizes="auto" :data-src="_usfGetScaledImageUrl(scaledHoverImageUrl)">
                     <img class="ProductItem__Image Image--lazyLoad Image--fadeIn" :data-widths="'[' + _usfImageWidths + ']'" data-sizes="auto" :data-src="_usfGetScaledImageUrl(scaledSelectedImageUrl)">
 
                     <span class="Image__Loader"></span>
                     
                     <!-- product image extra -->
-                    <usf-plugin name="searchResultsProductImageExtra" :data="pluginData"></usf-plugin>
+                    <div class="usf-hover-btns">
+                        <usf-plugin name="searchResultsProductPreview" :data="pluginData"></usf-plugin>
+                        <usf-plugin name="searchResultsProductCart" :data="pluginData"></usf-plugin>
+                    </div>
                 </div>
             </a>
             
@@ -200,18 +208,20 @@ usf.templates = {
                     <a :href="productUrl" :attrs="usf.plugins.invoke('getProductTitleAttrs', pluginData)"
                         v-html="product.title"></a>
                 </h2>
+                
+            
                 <!-- Product color swatch -->
                 <usf-color-swatch :value="product"  :selectedImage="selectedImage" :scaledSelectedImageUrl="scaledSelectedImageUrl" :productUrl="productUrl" v-if="_usfGetSettingColorSwatch() && _usfSettingCollection.show_price_on_hover"></usf-color-swatch>
 
                 <div class="ProductItem__PriceList Heading" :class="{'price--sold-out': isSoldOut,'ProductItem__PriceList--showOnHover':_usfSettingCollection.show_price_on_hover}" >
                     <template v-if="hasDiscount">
-                        <span class="ProductItem__Price Price Price--highlight Text--subdued" data-money-convertible v-html="displayDiscountedPrice"></span>
-                        <span class="ProductItem__Price Price Price--compareAt Text--subdued" data-money-convertible v-html="displayPrice"></span>
+                        <span class="ProductItem__Price Price Price--highlight Text--subdued" data-money-convertible v-html="priceVaries && !product.selectedVariantId ? displayMinDiscountedPrice : displayDiscountedPrice"></span>
+                        <span class="ProductItem__Price Price Price--compareAt Text--subdued" data-money-convertible v-html="priceVaries && !product.selectedVariantId ? displayMinPrice : displayPrice"></span>
                     </template>
                     <span v-else class="ProductItem__Price Price Text--subdued" v-html="priceVaries && !product.selectedVariantId ? loc.from + ' ' + displayMinDiscountedPrice : displayDiscountedPrice"></span>
                 </div>
                 <usf-color-swatch :value="product"  :selectedImage="selectedImage" :scaledSelectedImageUrl="scaledSelectedImageUrl" :productUrl="productUrl" v-if="_usfGetSettingColorSwatch() && !_usfSettingCollection.show_price_on_hover"></usf-color-swatch>
-                <div v-if="product.tags.find(x => x.includes('label_'))" class="New__Badges Product__Item">
+                <div v-if="product.tags && product.tags.find(x => x.includes('label_'))" class="New__Badges Product__Item">
                     <template v-for="tag in product.tags">
                         <div v-if="tag.includes('label_01') && window._usf_label_1 != '' " class="Label_01">
                             <span v-html="window._usf_label_1" class="ProductItem__Label Heading Text--subdued">
@@ -227,6 +237,14 @@ usf.templates = {
                         </div>
                         <div v-if="tag.includes('label_04') && window._usf_label_4 && _usf_label_4 != '' " class="Label_04">
                             <span  class="ProductItem__Label Heading Text--subdued" v-html="_usf_label_4">
+                            </span>
+                        </div>
+                        <div v-if="tag.includes('label_05') && window._usf_label_5 && _usf_label_5 != '' " class="Label_05">
+                            <span  class="ProductItem__Label Heading Text--subdued" v-html="_usf_label_5">
+                            </span>
+                        </div>
+                        <div v-if="tag.includes('label_06') && window._usf_label_6 && _usf_label_6 != '' " class="Label_06">
+                            <span  class="ProductItem__Label Heading Text--subdued" v-html="_usf_label_6">
                             </span>
                         </div>
                     </template>
@@ -254,8 +272,7 @@ usf.templates = {
 `,
 
     searchResultsListViewItem: `
-<a class="usf-sr-product list-view-item" @click="onItemClick" @mouseover="onItemHover" @mouseleave="onItemLeave"
-    :href="productUrl" :key="product.id">
+<a class="usf-sr-product list-view-item" @click="onItemClick" @mouseover="onItemHover" @mouseleave="onItemLeave" :href="productUrl" :data-usf-pid="product.id">
     <!-- Image column -->
     <div class="list-view-item__image-column">
         <div class="list-view-item__image-wrapper">
@@ -283,25 +300,29 @@ usf.templates = {
     </div>
 </a>
 `,
-    // AddToCart Plugin
-    addToCartPlugin: 
-`<form class="usf-add-to-cart" :data-form-variant-id="variant.id" method="POST" enctype="multipart/form-data" :action="usf.platform.addToCartUrl">
+    // AddToCart Plugin	
+    addToCartPlugin:/*inc_begin_addtocart-plugin*/
+`<form class="usf-add-to-cart" method="POST" enctype="multipart/form-data" :action="usf.platform.addToCartUrl">
     <input type="hidden" name="form_type" value="product">
     <input type="hidden" name="utf8" value="✓">
     <input type="hidden" name="quantity" value="1">
     <input type="hidden" name="id" :value="variant.id">
-    <button type="submit" name="add" :class="{'usf-visible': args.isHover}" @click="previewPopupSubmit" class="usf-add-to-cart-btn" v-html="loc.addToCart" :style="{borderColor:settings.buttonBorderColor,color:settings.buttonTextColor,backgroundColor:settings.buttonBackgroundColor}"></button>
+    <button type="submit" name="add" class="usf-add-to-cart-btn usf-hover-btn" :data-product-id="args.product.id" @click="_usfAddToCart">
+        <span class="usf-icon usf-icon-cart"></span>
+        <span class="usf-label" v-html="loc.addToCart"></span>
+    </button>
 </form>`
+/*inc_end_addtocart-plugin*/
 ,
     // Preview Plugin
     previewPlugin: /*inc_begin_preview-plugin*/
-`<div class="usf-sr-preview" :class="[{'usf-visible': args.isHover},'usf-sr-' + settings.buttonPosition]" @click="onShowModal" :style="{backgroundColor:settings.iconBackgroundColor}">
-    <div><svg :style="'width:initial;height:initial;fill:' + settings.iconTextColor" viewBox="0 0 1000 1000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"><g transform="translate(0.000000,281.000000) scale(0.100000,-0.100000)"><path d="M4808.6,2770.8c-1219.3-67-2423.2-610.6-3684.6-1659.5C884.8,912.3,100,140.9,100,104.6c0-34.4,794.3-819.2,1004.9-993.4c1138.9-941.7,2195.4-1468.1,3273-1630.8c306.3-45.9,821.1-55.5,1110.2-19.1C6663.3-2391.4,7832.8-1807.6,9023.4-774C9274.1-553.9,9900,73.9,9900,108.4c0,30.6-803.9,823-1004.9,989.6c-1098.7,909.2-2151.4,1445.1-3177.3,1617.4c-189.5,32.5-625.9,70.8-735,65.1C4944.5,2778.5,4866,2774.7,4808.6,2770.8z M5497.7,2296.2c1181-158.9,2425.1-846,3590.8-1983l212.5-206.7l-231.6-225.9c-1158-1135-2434.7-1829.8-3629.1-1977.2c-227.8-26.8-700.5-23-937.9,7.7c-417.3,57.4-851.8,181.8-1282.4,369.4C2452.4-1384.6,1543.2-743.4,865.6-60L702.9,104.6l172.3,174.2c509.1,513,1248,1075.7,1856.6,1410.7c562.7,310.1,1196.3,530.2,1751.4,606.8C4728.2,2330.6,5250.7,2330.6,5497.7,2296.2z"/><path d="M4670.8,1855.9c-671.8-128.2-1213.5-633.6-1397.3-1307.3c-59.3-212.5-59.3-675.7,0-888.1c172.3-625.9,654.6-1110.2,1276.7-1280.5c222-61.3,677.6-61.3,899.6,0c622.1,170.3,1104.4,654.6,1276.7,1280.5c59.3,212.5,59.3,675.7,0,888.1c-172.3,627.8-662.3,1117.8-1276.7,1280.5C5246.9,1880.8,4875.6,1894.2,4670.8,1855.9z M5373.2,1387c233.5-72.7,386.6-166.5,566.6-344.5c268-266.1,388.6-557,388.6-937.9c0-379-120.6-669.9-390.5-937.9c-268-269.9-558.9-390.5-937.9-390.5c-241.2,0-386.6,34.4-612.5,145.5c-130.2,63.2-195.2,111-325.4,243.1c-273.7,275.6-392.4,557-392.4,939.8c0,382.8,118.7,664.2,392.4,937.9c210.5,212.5,436.4,331.1,723.5,382.8C4929.2,1452.1,5222,1432.9,5373.2,1387z"/><path d="M4818.2,508.4c-283.3-132.1-348.4-509.1-122.5-723.5c281.4-266,744.6-68.9,744.6,319.7c0,179.9-109.1,342.6-271.8,409.6C5072.7,554.4,4912,552.4,4818.2,508.4z"/></g></svg></div>
-    <span v-html="loc.quickView" :style="{color:settings.iconTextColor}"></span>
+`<div class="usf-hover-btn usf-sr-preview" @click="onShowModal">
+    <span class="usf-icon usf-icon-eye"></span>
+    <span class="usf-label" v-html="loc.quickView"></span>
 </div>`
 /*inc_end_preview-plugin*/,
     previewPluginModal: /*inc_begin_preview-modal*/
-`<div><div class="usf-backdrop"></div><div class="usf-preview__wrapper usf-zone">
+`<div><div class="usf-backdrop"></div><div class="usf-preview__wrapper usf-zone"><div class="usf-preview__container">
     <div class="usf-preview">
         <!-- Close button -->
         <div class="usf-remove" @click="onClose"></div>
@@ -312,21 +333,15 @@ usf.templates = {
             <div class="usf-preview__content-left">
                 <!-- Big image -->
                 <div class="usf-preview__image-slider">
-                    <div type="button" title="Prev" class="usf-preview__image-slider__prev" @click="onPrevImage(0)" v-if="showBigImageNav">
-                        <svg aria-hidden="true" viewBox="0 0 512 512" class=""><path fill="currentColor" d="M358 512c4 0 7-1 9-4 5-5 5-13 0-18L146 269 367 47c5-5 5-13 0-18s-13-5-18 0L119 260c-5 5-5 13 0 18l230 230c3 3 6 4 9 4z"></path></svg>
-                    </div>
+                    <div type="button" title="Prev" class="usf-preview__image-slider__btn usf-prev usf-icon usf-icon-up" @click="onPrevImage(0)" v-if="showBigImageNav"></div>
 
-                    <div class="usf-preview__image-slider__track" :style="'max-width:' + ((image.height/image.width*imageMaxWidth > imageMaxHeight) ? (imageMaxHeight*image.width/image.height) + 'px' : '100%') + ';padding-bottom:' + ((image.height/image.width*imageMaxWidth > imageMaxHeight) ? (imageMaxHeight*100/imageMaxWidth) : (image.height/image.width*100)) + '%'">
-                        <div v-for="i in images" class="usf-preview__image" :class="{'usf-active': image === i}">
-                            <div class="usf-preview__image-img-wrapper">
-                                <img :src="usf.platform.getImageUrl(i.url, 1024)">
-                            </div>
+                    <div class="usf-preview__image-slider__track">
+                        <div v-for="i in images" class="usf-preview__image-wrapper" :class="{'usf-active': image === i}"">
+                            <div class="usf-preview__image" :style="'background-image:url('+usf.platform.getImageUrl(i.url, 1024)+')'"></div>
                         </div>
                     </div>
 
-                    <div type="button" title="Next" class="usf-preview__image-slider__next" @click="onNextImage(0)" v-if="showBigImageNav">
-                        <svg aria-hidden="true" viewBox="0 0 512 512" class=""><path fill="currentColor" d="M128 512c-3 0-7-1-9-4-5-5-5-13 0-18l221-221L119 47c-5-5-5-13 0-18s13-5 18 0l230 231c5 5 5 13 0 18L137 508c-2 3-6 4-9 4z"></path></svg>
-                    </div>
+                    <div type="button" title="Next" class="usf-preview__image-slider__btn usf-next usf-icon usf-icon-up" @click="onNextImage(0)" v-if="showBigImageNav"></div>
 
                     <ul class="usf-preview__image-slider__dots" v-if="showImageIndices && false">
                         <li :class="{'active':i===image}" v-for="(i,index) in images"  @click="onThumbClick(i)"><button type="button">{{index+1}}</button></li>
@@ -334,78 +349,73 @@ usf.templates = {
                 </div>
 
                 <!-- Thumbnails -->
-                <div class="usf-preview__thumbs usf-clear" v-if="showThumbs">
-                    <div v-if="showThumbNav" class="usf-preview__thumbs-prev" @click="onPrevImage">
-                        <svg aria-hidden="true" viewBox="0 0 512 512" class=""><path fill="currentColor" d="M358 512c4 0 7-1 9-4 5-5 5-13 0-18L146 269 367 47c5-5 5-13 0-18s-13-5-18 0L119 260c-5 5-5 13 0 18l230 230c3 3 6 4 9 4z"></path></svg>
-                    </div>
-
+                <div class="usf-preview__thumbs" v-if="showThumbs">
                     <div class="usf-preview__thumbs-inner">
-                        <div v-for="i in images" class="usf-preview__thumb" :class="{'usf-active': image === i}">
-                            <img :src="usf.platform.getImageUrl(i.url, 'small')" @click="onThumbClick(i)">
-                        </div>
-                    </div>
-
-                    <div v-if="showThumbNav" class="usf-preview__thumbs-next" @click="onNextImage">
-                        <svg aria-hidden="true" viewBox="0 0 512 512" class=""><path fill="currentColor" d="M128 512c-3 0-7-1-9-4-5-5-5-13 0-18l221-221L119 47c-5-5-5-13 0-18s13-5 18 0l230 231c5 5 5 13 0 18L137 508c-2 3-6 4-9 4z"></path></svg>                        
+                        <span v-for="i in images" class="usf-preview__thumb" :class="{'usf-active': image === i}" @click="onThumbClick(i)"></span>
                     </div>
                 </div>
+
+                <!-- Badges -->
+                <div class="usf-preview__badge usf-preview__badge-sale" v-if="hasDiscount" v-html="loc.sale"></div>
             </div>
 
             <!-- right - info of the product -->
-            <div class="usf-preview__content-right">
-                <!-- Product title -->
-                <h1 class="usf-preview__title" v-html="product.title"></h1>
+            <div class="usf-preview__content-right usf-scrollbar">
+                <div class="usf-preview__content-summary">
+                    <!-- Product title -->
+                    <h1 class="usf-preview__title"><a :href="productUrl" v-html="product.title"></a></h1>
 
-                <!-- Vendor -->
-                <div class="usf-preview__vendor" v-html="product.vendor" v-if="usf.settings.search.showVendor"></div>
+                    <!-- Vendor -->
+                    <div class="usf-preview__vendor" v-html="product.vendor" v-if="usf.settings.search.showVendor"></div>
 
-                <!--Prices -->
-                <div class="usf-preview__price-wrapper price" :class="{'price--sold-out': isSoldOut}">
-                    <span class="usf-price product-price__price" :class="{'usf-has-discount': hasDiscount}" v-html="usf.utils.getDisplayPrice(selectedVariant.compareAtPrice || selectedVariant.price)"></span>
-                    <span v-if="hasDiscount" class="usf-discount product-price__price product-price__sale" v-html="usf.utils.getDisplayPrice(selectedVariant.price)"></span>
+                    <!--Prices -->
+                    <div class="usf-preview__price-wrapper price" :class="{'price--sold-out': isSoldOut}">
+                        <span class="usf-price product-price__price" :class="{'usf-has-discount': hasDiscount}" v-html="usf.utils.getDisplayPrice(selectedVariant.compareAtPrice || selectedVariant.price)"></span>
+                        <span v-if="hasDiscount" class="usf-discount product-price__price product-price__sale" v-html="usf.utils.getDisplayPrice(selectedVariant.price)"></span>
 
-                    <div v-if="false" class="price__badges price__badges--listing">
-                        <span class="price__badge price__badge--sale" aria-hidden="true" v-if="hasDiscount && usf.settings.search.showSale">
-                            <span v-html="loc.sale"></span>
-                        </span>
-                        <span class="price__badge price__badge--sold-out" v-if="isSoldOut && usf.settings.search.showSoldOut">
-                            <span v-html="loc.soldOut"></span>
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Description -->
-                <div class="usf-preview__description" :class="{'usf-loader':!description}" v-html="description"></div>
-
-                <!-- Add to cart form -->
-                <form method="post" enctype="multipart/form-data" :action="usf.platform.addToCartUrl">
-                    <!-- variant ID -->
-                    <input type="hidden" name="id" :value="selectedVariant.id" />
-
-                    <!-- Options -->
-                    <template v-for="(o,index) in product.options">
-                        <usf-preview-modal-option :option="o" :index="index"></usf-preview-modal-option>
-                    </template>
-
-                    <!-- add to card button -->
-                    <div class="usf-preview__field">
-                        <label v-html="loc.quantity"></label>
-                        <div class="usf-flex usf-preview__add-to-cart">
-                            <input pattern="[0-9]*" min="1" :value="quantity" name="quantity" type="number" />
-                            <button :title="!hasAvailableVariant ? loc.selectedVariantNotAvailable : ''" :disabled="!hasAvailableVariant" type="submit" name="add" class="usf-preview--add-to-cart-btn" :class="{ 'usf-disabled': !hasAvailableVariant}" :style="{color:settings.buttonTextColor,backgroundColor:settings.buttonBackgroundColor}" v-html="loc.addToCart"></button>
+                        <div v-if="false" class="price__badges price__badges--listing">
+                            <span class="price__badge price__badge--sale" aria-hidden="true" v-if="hasDiscount && usf.settings.search.showSale">
+                                <span v-html="loc.sale"></span>
+                            </span>
+                            <span class="price__badge price__badge--sold-out" v-if="isSoldOut && usf.settings.search.showSoldOut">
+                                <span v-html="loc.soldOut"></span>
+                            </span>
                         </div>
                     </div>
-                </form>
 
-                <!-- See details link -->
-                <div class="usf-preview__link-wrapper">
+                    <!-- Description -->
+                    <p class="usf-preview__description" :class="{'usf-with-loader':description===undefined}" v-html="description"></p>
+
+                    <!-- Add to cart form -->
+                    <form method="post" enctype="multipart/form-data" :action="usf.platform.addToCartUrl" @submit="_usfAddToCart">
+                        <!-- variant ID -->
+                        <input type="hidden" name="id" :value="selectedVariant.id" />
+
+                        <!-- Options -->
+                        <template v-for="(o,index) in product.options">
+                            <usf-preview-modal-option :option="o" :index="index"></usf-preview-modal-option>
+                        </template>
+
+                        <!-- add to card button -->
+                        <div class="usf-preview__field">                            
+                            <div class="usf-flex usf-preview__add-to-cart">
+                                <usf-num-input v-model="quantity" name="quantity" :disabled="!hasAvailableVariant" :min="1" :max="available" />
+                                <button :title="!hasAvailableVariant ? loc.selectedVariantNotAvailable : ''" :disabled="!hasAvailableVariant" type="submit" name="add" class="usf-preview--add-to-cart-btn usf-add-to-cart-btn" :class="{ 'usf-disabled': !hasAvailableVariant}" :style="{color:settings.buttonTextColor,backgroundColor:settings.buttonBackgroundColor}">
+                                    <span class="usf-label" v-html="loc.addToCart"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- See details link -->
                     <a class="usf-preview__link" :href="productUrl" v-html="loc.seeFullDetails"></a>
                 </div>
             </div>
         </div>
     </div>
-</div></div>`
-/*inc_end_preview-modal*/,
+</div></div></div>`
+/*inc_end_preview-modal*/
+,
     gotoTop: /*inc_begin_goto-top*/
 `<div class="usf-goto-top">
     <div class="usf-icon usf-icon-up"></div>
@@ -431,15 +441,15 @@ usf.templates = {
         <span class="usf-label" v-html="loc.filters"></span>
 
         <!-- Clear all -->
-        <button class="usf-clear-all usf-btn" v-html="loc.clearAll" @click="root.removeAllFacetFilters" :aria-label="loc.clearAllFilters"></button>
+        <button class="usf-clear-all usf-btn" v-html="loc.clearAll" @click.prevent="root.removeAllFacetFilters" :aria-label="loc.clearAllFilters"></button>
     </div>
 
     <!-- Breadcrumb Values -->
     <div class="usf-refineby__body">
         <template v-for="facetId in facetFilterIds" v-if="(facet = root.facets.find(fc => fc.id === facetId)) && (f = root.facetFilters[facetId])">
             <template v-for="queryValStr in f[1]">
-                <div class="usf-refineby__item usf-pointer usf-clear" @click="root.removeFacetFilter(facetId, queryValStr)">
-                    <button class="usf-btn"><span class="usf-filter-label" v-html="facet.title + ': '"></span><b v-html="root.formatBreadcrumbLabel(facet, f[0], queryValStr)"></b></button><span class="usf-remove"></span>
+                <div class="usf-refineby__item usf-pointer usf-clear" @click.prevent="root.removeFacetFilter(facetId, queryValStr)">
+                    <button class="usf-btn"><span class="usf-filter-label" v-html="facet.title + ': '"></span><span v-html="root.formatBreadcrumbLabel(facet, f[0], queryValStr)"></span></button><span class="usf-remove"></span>
                 </div>
             </template>
         </template>
@@ -467,7 +477,7 @@ usf.templates = {
             <template v-else-if="mobileSelectedFacet">
                 <div class="usf-title usf-back" @click="onMobileBack(0)" v-html="mobileSelectedFacet.title"></div>
                 <div v-if="facetFilters && facetFilters[mobileSelectedFacet.id]" class="usf-clear" @click="removeFacetFilter(mobileSelectedFacet.id)" v-html="loc.clear"></div>
-                <div v-else class="usf-all" v-html="loc.all"></div>
+                <div v-else-if="mobileSelectedFacet.multiple" class="usf-all" @click="selectFacetFilter(mobileSelectedFacet)" v-html="loc.all"></div>
             </template>
 
             <!-- When no filter is selected -->
@@ -539,11 +549,12 @@ usf.templates = {
     <template v-else>
         <!-- Filter title -->
         <div class="usf-clear">
-            <div class="usf-title usf-no-select" @click="onExpandCollapse">
+            <div class="usf-title usf-no-select" @click.prevent="onExpandCollapse">
                 <button class="usf-label usf-btn" v-html="facet.title" :aria-label="usf.utils.format(loc.filterBy,facet.title)" :aria-expanded="!collapsed"></button>
                 <usf-helptip v-if="facet.tooltip" :tooltip="facet.tooltip"></usf-helptip>            
                 <!-- 'Clear all' button to clear the current facet filter. -->
-                <button v-if="isInBreadcrumb" class="usf-clear-all usf-btn" :title="loc.clearFilterOptions" :aria-label="usf.utils.format(loc.clearFiltersBy,facet.title)" @click="onClear" v-html="loc.clear"></button>
+                <button v-if="isInBreadcrumb" class="usf-clear-all usf-btn" :title="loc.clearFilterOptions" :aria-label="usf.utils.format(loc.clearFiltersBy,facet.title)" @click.prevent="onClear" v-html="loc.clear"></button>
+                <span class="usf-pm"></span>
             </div>
         </div>
 
@@ -563,8 +574,8 @@ usf.templates = {
     filterOption: /*inc_begin_filter-option*/
 `<div v-if="children" :class="(isSelected ? 'usf-selected ' : '') + ' usf-relative usf-facet-value usf-facet-value-single usf-with-children' + (collapsed ? ' usf-collapsed' : '')">
     <!-- option label -->
-    <button class="usf-children-toggle usf-btn" v-if="children" @click="onToggleChildren"></button>
-    <button class="usf-label usf-btn" v-html="label" @click="onToggle"></button>
+    <button class="usf-pm usf-btn" v-if="children" @click.prevent="onToggleChildren"></button>
+    <button class="usf-label usf-btn" v-html="label" @click.prevent="onToggle"></button>
 
     <!-- product count -->
     <span v-if="!(!usf.settings.filterNavigation.showProductCount || (swatchImage && !usf.isMobile)) && option.value !== undefined" class="usf-value">{{option.value}}</span>    
@@ -573,7 +584,7 @@ usf.templates = {
         <button :class="'usf-child-item usf-btn usf-facet-value' + (isChildSelected(c) ? ' usf-selected' : '')" v-for="c in children" v-html="getChildLabel(c)" @click="onChildClick(c)"></span>
     </div>
 </div>
-<div v-else :class="(isSelected ? 'usf-selected ' : '') + (swatchImage ? ' usf-facet-value--with-background' : '') + (' usf-relative usf-facet-value usf-facet-value-' + (facet.multiple ? 'multiple' : 'single'))" :title="isSwatch || isBox ? option.label + ' (' + option.value + ')' : undefined" :style="usf.isMobile ? null : swatchStyle" @click="onToggle">
+<button v-else :class="(isSelected ? 'usf-selected ' : '') + (swatchImage ? ' usf-facet-value--with-background' : '') + ' usf-btn usf-relative usf-facet-value usf-facet-value-' + (facet.multiple ? 'multiple' : 'single')" :title="isSwatch || isBox ? option.label + ' (' + option.value + ')' : undefined" :style="usf.isMobile ? null : swatchStyle" @click.prevent="onToggle">
     <!-- checkbox -->
     <div v-if="!isBox && !isSwatch && facet.multiple" :class="'usf-checkbox' + (isSelected ? ' usf-checked' : '')">
         <span class="usf-checkbox-inner"></span>
@@ -583,14 +594,11 @@ usf.templates = {
     <div v-if="swatchImage && usf.isMobile" class="usf-mobile-swatch" :style="swatchStyle"></div>
 
     <!-- option label -->
-    <button class="usf-label usf-btn" v-html="label"></button>
-
-    <!-- helper for swatch -->
-    <button v-if="isSwatch" class="usf-btn-helper usf-btn" :aria-checked="isSelected" role="checkbox"></button>
+    <span class="usf-label usf-btn" v-html="label"></span>
     
     <!-- product count -->
     <span v-if="!(!usf.settings.filterNavigation.showProductCount || (swatchImage && !usf.isMobile)) && option.value !== undefined" class="usf-value">{{option.value}}</span>
-</div>`
+</button>`
 /*inc_end_filter-option*/,
 
 
@@ -601,9 +609,7 @@ usf.templates = {
     <!-- Mobile search box -->
     <div v-if="usf.isMobile">
         <form class="usf-is__inputbox" :action="searchUrl" method="get" role="search">
-            <span class="usf-icon usf-icon-back usf-close" @click="close">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g data-name="Layer 2"><g data-name="arrow-back"><rect width="24" height="24" opacity="0" transform="rotate(90 12 12)"></rect><path fill="rgba(34,34,34/80%)" d="M19 11H7.14l3.63-4.36a1 1 0 1 0-1.54-1.28l-5 6a1.19 1.19 0 0 0-.09.15c0 .05 0 .08-.07.13A1 1 0 0 0 4 12a1 1 0 0 0 .07.36c0 .05 0 .08.07.13a1.19 1.19 0 0 0 .09.15l5 6A1 1 0 0 0 10 19a1 1 0 0 0 .64-.23 1 1 0 0 0 .13-1.41L7.14 13H19a1 1 0 0 0 0-2z"></path></g></g></svg>
-            </span>
+            <span class="usf-icon usf-icon-back usf-close" @click="close"></span>
             <input name="q" autocomplete="off" ref="searchInput" :value="term" @input="onSearchBoxInput">
             <span class="usf-remove" v-if="term" @click="onClear"></span>
         </form>
@@ -639,41 +645,37 @@ usf.templates = {
             <!-- Body content -->
             <div class="usf-is__content">
                 <!-- Products -->
-                <div class="usf-is__matches">
-                    <div class="usf-title" v-html="loc.productMatches"></div>
+                <div class="usf-is__matches usf-is__products">
+                    <div class="usf-title" v-html="queryOrTerm ? loc.productMatches : loc.trending"></div>
                     
-                    <div class="usf-is__products" v-if="result.items.length">
+                    <div class="usf-is__list" v-if="result.items.length">
+                        <!-- Did you mean -->
+                        <span class="usf-is__did-you-mean" v-html="usf.utils.format(loc.didYouMean, term, result.query)" v-if="result.query !== term.toLowerCase()"></span>
+
                         <!-- Product -->
                         <usf-is-item v-for="p in result.items" :product="p" :result="result" :key="p.id + '-' + p.selectedVariantId"></usf-is-item>
                     </div>
-                    <div class="usf-is__products" v-else style="background:url('//cdn.shopify.com/s/files/1/0257/0108/9360/t/85/assets/no-products.png?t=2') center no-repeat;min-height:250px"></div>
+                    <div class="usf-is__list" v-else style="background:url('//cdn.shopify.com/s/files/1/0257/0108/9360/t/85/assets/no-products.png?t=2') center no-repeat;min-height:250px"></div>
                 </div>
 
-                <!-- Suggestions, Collections, Pages -->
-                <div class="usf-is__suggestions">
+                <div class="usf-is__side">
                     <!-- Suggestions -->
-                    <template v-if="result.suggestions && result.suggestions.length">
+                    <div class="usf-is__matches usf-is__suggestions" v-if="result.suggestions && result.suggestions.length">
                         <div class="usf-title" v-html="loc.searchSuggestions"></div>
-                        <span v-for="s in result.suggestions" class="usf-is__suggestion" v-html="usf.utils.highlight(s, result.query)" @click="search(s)"></span>
-                    </template>
-                    
-                    <!-- Collections -->
-                    <template v-if="result.collections && result.collections.length">
-                        <div class="usf-title" v-html="loc.collections"></div>
+                        <span v-for="s in result.suggestions" class="usf-is__match" v-html="usf.utils.highlight(s, result.query)" @click="search(s)"></span>
+                    </div>
 
-                        <template v-if="result.collections">
-                            <span v-for="c in result.collections" class="usf-is__suggestion" v-html="usf.utils.highlight(c.title, result.query)" @click="selectCollection(c)"></span>
-                        </template>
-                    </template>
+                    <!-- Collections -->
+                    <div class="usf-is__matches usf-is__collections" v-if="result.collections && result.collections.length">
+                        <div class="usf-title" v-html="loc.collections"></div>
+                        <span v-for="c in result.collections" class="usf-is__match" v-html="usf.utils.highlight(c.title, result.query)" @click="selectCollection(c)"></span>
+                    </div>
 
                     <!-- Pages -->
-                    <template v-if="result.pages && result.pages.length">
+                    <div class="usf-is__matches usf-is__pages" v-if="result.pages && result.pages.length">
                         <div class="usf-title" v-html="loc.pages"></div>
-
-                        <template v-if="result.pages">
-                            <span v-for="p in result.pages" class="usf-is__suggestion" v-html="usf.utils.highlight(p.title, result.query)" @click="selectPage(p)"></span>
-                        </template>
-                    </template>
+                        <span v-for="p in result.pages" class="usf-is__match" v-html="usf.utils.highlight(p.title, result.query)" @click="selectPage(p)"></span>
+                    </div>
                 </div>
             </div>
 
@@ -681,14 +683,10 @@ usf.templates = {
             <div class="usf-is__viewall">
                 <span @click="search(queryOrTerm)" v-html="usf.utils.format(queryOrTerm ? loc.viewAllResultsFor : loc.viewAllResults, queryOrTerm)"></span>
             </div>
-            
-            <!-- Loader -->
-            <div v-if="loader" class="usf-is__loader">
-                <div class="usf-spinner"></div>
-            </div>
         </template>
     </template>
 </div>`
+
 /*inc_end_instantsearch*/
     ,
 
@@ -881,6 +879,7 @@ usf.event.add('sr_updated', function () {
     };
     _usfImageWidths = _usfIsDynamicImage ? [200, 400, 600, 700, 800, 900, 1000, 1200] : [usf.settings.search.imageSize];
 
+  
 
     var nodes = document.head.children;
     for (var i = 0; i < nodes.length; i++) {
@@ -976,7 +975,8 @@ usf.event.add('sr_updated', function () {
             }
         },
         mounted() {
-            updateSRposition();
+            if (!usf.isMobile || !usf.platform.collection)
+                updateSRposition();
 
             this.pageOverlayElement = document.querySelector('.PageOverlay');
 
@@ -999,35 +999,44 @@ usf.event.add('sr_updated', function () {
                     }
                 }
             });
+            document.body.addEventListener('click', function (e) {
+                var activator = document.getElementById('usf-new-sortbtn');
+                e.target.closest(".Popover") || e.target.closest(".Modal") || e.target === activator || activator.contains(e.target) || (this.show = false);
+            }.bind(this))
+
+
+            
+
 
         },
         render(h) {
             var vm = this;
             return h('button', {
-                    class: 'CollectionToolbar__Item CollectionToolbar__Item--sort Heading Text--subdued u-h6 usf-new-sortbtn',
+                ref: 'sortButton',
+                class: 'CollectionToolbar__Item CollectionToolbar__Item--sort Heading Text--subdued u-h6 usf-new-sortbtn',
+                attrs: {
+                    'aria-label': "Show sort by",
+                    'aria-haspopup': "true",
+                    'aria-expanded': (this.show === true ? "true" : "false"),
+                    'aria-controls': "collection-sort-popoverv2",
+                    id: 'usf-new-sortbtn',
+                },
+                on: {
+                    click: this.toggleDropdown
+                }
+            }, [
+                h('span', usf.isMobile ? usf.settings.translation.sort : this.labelFromValue),
+                h('svg', {
+                    class: 'Icon Icon--select-arrow',
                     attrs: {
-                        'aria-label': "Show sort by",
-                        'aria-haspopup': "true",
-                        'aria-expanded': (this.show === true ? "true" : "false"),
-                        'aria-controls': "collection-sort-popoverv2",
-                        id: 'usf-new-sortbtn',
+                        role: "presentation",
+                        viewBox: "0 0 19 12"
                     },
-                    on: {
-                        click: this.toggleDropdown
+                    domProps: {
+                        innerHTML: `<polyline fill="none" stroke="currentColor" points="17 2 9.5 10 2 2" fill-rule="evenodd" stroke-width="2" stroke-linecap="square"></polyline>`
                     }
-                }, [
-                    h('span', usf.isMobile ? usf.settings.translation.sort : this.labelFromValue),
-                    h('svg', {
-                        class: 'Icon Icon--select-arrow',
-                        attrs: {
-                            role: "presentation",
-                            viewBox: "0 0 19 12"
-                        },
-                        domProps: {
-                            innerHTML: `<polyline fill="none" stroke="currentColor" points="17 2 9.5 10 2 2" fill-rule="evenodd" stroke-width="2" stroke-linecap="square"></polyline>`
-                        }
-                    }),                    
-                
+                }),
+                    
                     h("div", {
                         class: "Popover Popover--alignRight Popover--positionBottom usf-new-sort-popover",
                         attrs: {
@@ -1035,6 +1044,7 @@ usf.event.add('sr_updated', function () {
                             "aria-hidden": (this.show === true ? "false" : "true")
                         }
                     }, [
+                            
                         h('div', {
                             class: 'Popover__Header'
                         }, [
@@ -1081,9 +1091,10 @@ usf.event.add('sr_updated', function () {
                                         }
                                     })
                                 })
-                            ])
+                            ]),
                         ]
-                        )
+                            ),
+                            
                     ])
                 ])
         }
@@ -1107,6 +1118,21 @@ usf.event.add('sr_updated', function () {
             })
 
             var vm = this;
+            if (document.querySelector('.PageOverlay')) {
+                document.querySelector('.PageOverlay').addEventListener('click', function () {
+                    if (vm.drawerFilterShow) {
+                        vm.drawerFilterShow = false;
+
+                        if (!usf.isMobile) {
+                            if (vm.drawerFilterShow) {
+                                vm.forShowFilter();
+                            } else {
+                                vm.forHiddenFilter();
+                            }
+                        }
+                    }
+                })
+            }
             if (_usfSettingCollection.filterPosition == 'drawer')
                 document.body.insertBefore(this.$refs['drawerFilter'], document.body.firstChild)
 
@@ -1279,7 +1305,6 @@ usf.event.add('sr_updated', function () {
                 usf.query.add({ _usf_view: 'list' });
                 usf.event.raise('sr_viewChanged', this, 'list');
             },
-            
             renderChangeLayoutButton(h) {
                 return h('div', {
                     class: 'CollectionToolbar__Item CollectionToolbar__Item--layout'
@@ -1446,7 +1471,10 @@ usf.event.add('sr_updated', function () {
                                     _colorChanged(e, t);
                                     this.$parent.selectedVariantForPrice = variant_for_value;
                                     this.product.selectedVariantId = variant_for_value.id;
-                                    this.$parent.$el.querySelectorAll('.Image--lazyLoaded').forEach(el => el.classList.add('Image--lazyLoad'));
+                                    if (this.$parent.setSelectedVariantId(variant_for_value.id)){
+                                        // reset lazyloaded elements
+                                        this.$parent.$el.querySelectorAll('.Image--lazyLoaded').forEach(el => el.classList.add('Image--lazyLoad'));
+                                    }
                                     this.$emit('input', this.product);
                                 }
                             }
@@ -1515,62 +1543,42 @@ usf.event.add('sr_updated', function () {
     usf.register(blockFilterV2, null, 'block-filter-v2');
 });
 
+function _usfOnAddToCartSuccess(rs, formElement) {
+    var addToCartBtn = formElement.querySelector('.usf-add-to-cart-btn');
+    // We simply trigger an event so the mini-cart can re-render
+    addToCartBtn.dispatchEvent(new CustomEvent('product:added', {
+        bubbles: true,
+        detail: {
+            variant: parseInt(formElement.querySelector('[name="id"]').value),
+            quantity: parseInt(formElement.querySelector('[name="quantity"]').value)
+        }
+    }));
+}
 
-function previewPopupSubmit(event) {
-    if (_usfSettingCollection.useAjaxCart) {
-        // Don't follow the link
-        event.preventDefault();
+function _usfOnAddToCartError(content, formElement) {
+    var addToCartBtn = formElement.querySelector('.usf-add-to-cart-btn');
+    var msg = content['description'];
+    var errorMessageElement = document.createElement('span');
+    errorMessageElement.className = 'ProductForm__Error Alert Alert--error';
+    errorMessageElement.innerHTML = msg;
+    addToCartBtn.removeAttribute('disabled');
+    var prdEl = formElement.closest('.usf-sr-product');
+    var _usfErrorCart = formElement.querySelector('._usfErrorCart') || prdEl ? prdEl.querySelector('._usfErrorCart') : null;
 
-        var addToCartButton = event.target;
-        var formElement = addToCartButton.closest('form');
-        var formData = new FormData(formElement)
-        var objectData = {};
-        formData.forEach(function (value, key) {
-            objectData[key] = value;
-        });
-
-        addToCartButton.setAttribute('disabled', 'disabled');
-        document.dispatchEvent(new CustomEvent('theme:loading:start'));
-
-
-
-        fetch(usf.platform.baseUrl + '/cart/add.js', {
-            body: JSON.stringify(objectData),
-            credentials: 'same-origin',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest' // This is needed as currently there is a bug in Shopify that assumes this header
-            }
-        }).then(function (response) {
-            document.dispatchEvent(new CustomEvent('theme:loading:end'));
-            if (response.ok) {
-                addToCartButton.removeAttribute('disabled');
-                // We simply trigger an event so the mini-cart can re-render
-                addToCartButton.dispatchEvent(new CustomEvent('product:added', {
-                    bubbles: true,
-                    detail: {
-                        variant: parseInt(formElement.querySelector('[name="id"]').value),
-                        quantity: parseInt(formElement.querySelector('[name="quantity"]').value)
-                    }
-                }));
-                var x = document.querySelector('.usf-preview__wrapper .usf-remove');
-                if (x) x.click();
-            } else {
-                response.json().then(function (content) {
-                    var errorMessageElement = document.createElement('span');
-                    errorMessageElement.className = 'ProductForm__Error Alert Alert--error';
-                    errorMessageElement.innerHTML = content['description'];
-                    addToCartButton.removeAttribute('disabled');
-                    var _usfErrorCart = formElement.querySelector('._usfErrorCart') || formElement.closest('.usf-sr-product').querySelector('._usfErrorCart');
-                    _usfErrorCart.insertAdjacentElement('afterend', errorMessageElement);
-                    setTimeout(function () {
-                        errorMessageElement.remove();
-                    }, 2500);
-                });
-            }
-        });
+    var lbl = addToCartBtn.querySelector('.usf-label');
+    if (_usfErrorCart)
+        _usfErrorCart.insertAdjacentElement('afterend', errorMessageElement);
+    else {
+        if (!lbl._oldText)
+            lbl._oldText = lbl.innerHTML;
+        lbl.innerHTML = msg
     }
+
+    setTimeout(function () {
+        errorMessageElement.remove();
+        if (lbl._oldText)
+            lbl.innerHTML = lbl._oldText
+    }, 2500);
 }
 
 
@@ -1578,13 +1586,22 @@ function previewPopupSubmit(event) {
 usf.event.add('init', function () {
     if (usf.settings.instantSearch.online) {
         if (usf.isMobile) {
+            function _usfShowInstantSearchPP() {
+                var target = document.querySelector(".Search__Form input.Search__Input") || document.createElement('input');
+                usf.event.raise('is_show', target);
+            }
             // User clicks on the search icon => show our popup
             document.querySelectorAll('a[data-action="toggle-search"]').forEach(searchIcon =>
                 searchIcon.addEventListener('click', function () {
-                    var target = document.querySelector(".Search__Form input.Search__Input") || document.createElement('input');
-                    usf.event.raise('is_show', target);
+                    _usfShowInstantSearchPP();
                 })
             );
+            //for 1.6 ver
+            if (document.querySelector('[data-action="open-modal"]')) {
+                document.querySelector('[data-action="open-modal"]').addEventListener('click', function () {
+                    _usfShowInstantSearchPP();
+                })
+            }
         }
 
         // Handle theme search input box
