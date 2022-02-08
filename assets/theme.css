@@ -7145,6 +7145,10 @@ body:not(.features--show-image-zooming) .Image--lazyLoaded.Image--zoomOut {
   text-align: right;
 }
 
+.ProductItem__Info--center {
+  text-align: center;
+}
+
 .ProductItem__Rating {
   margin-top: 4px;
   margin-bottom: 4px;
