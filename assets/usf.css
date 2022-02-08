@@ -128,7 +128,7 @@ body:not(.usf-mobile) .Popover.usf-new-sort-popover {
     }*/
 
 @media screen and (min-width: 767px) {
-    .CollectionInner {
+    #usf_container .CollectionInner {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -246,7 +246,7 @@ body:not(.usf-mobile) .Popover.usf-new-sort-popover {
 }
 
 .usf_swatch {
-    margin-top: 6px!important;
+    margin-top: 7px;
 }
 
 /* Hide theme search form */
@@ -257,19 +257,21 @@ body:not(.usf-mobile) .Popover.usf-new-sort-popover {
 
 .usf-mobile .usf-body{
     background-color:white;
+    font-size:12px;
 }
 
 .usf-mobile .usf-footer div{
     background-color:black;
     font-size:13px;
     font-weight:400;
+    color:white;
 }
 
 
-.usf-mobile .usf-facets .usf-close{
+/*.usf-mobile .usf-facets .usf-close{
     background-color:black;
     background:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' height='15' width='15'%3E%3Cpath d='M9.97 8.274L2.335.637.637 2.334 8.274 9.97.637 17.607l1.697 1.697 7.637-7.636 7.636 7.636 1.697-1.697-7.636-7.636 7.636-7.637L17.607.637 9.971 8.274z' fill='%23fff'/%3E%3C/svg%3E") 50% 50% no-repeat;
-}
+}*/
 
 .usf-facet, .usf-refineby{
     border-bottom:none;
@@ -282,7 +284,7 @@ body:not(.usf-mobile) .Popover.usf-new-sort-popover {
 
 
 .usf_swatch{
-    margin-top:20px;
+    margin-top:4px;
     margin-left:-5px;
 
 }
@@ -295,7 +297,16 @@ body:not(.usf-mobile) .Popover.usf-new-sort-popover {
     font-weight:var(--text-font-weight);
     font-family:var(--text-font-family);
 }
+
+.usf-sr-summary{
+    display:none!important;
+}
+
+.usf-refineby__item{
+    font-size:13px;
+}
 /* End custom theme code */
+
 
 /* Begin common theme code */
 

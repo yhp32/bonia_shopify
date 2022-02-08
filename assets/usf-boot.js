@@ -5,4 +5,4 @@ usf.utils={on:H,off:function(e,t,r){if(e._r_events&&t){var n=null,s=e._r_events[
 /* End theme init code */
 P.init();var Z=location.pathname,ee=usf._canLoadContainer=(P.isCollectionPage?i.collections.online:-1!==Z.indexOf(i.search.searchResultsUrl)&&i.search.online)||window._usfHasContainer;ee&&Y(),V(function(){var e=document.body.classList;function t(){u&&i.instantSearch.searchBoxSelector.split(",").forEach(e=>{for(var t=document.body.querySelectorAll(e),r=0;r<t.length;r++)$(t[r])})}(usf.isMobile=document.body.clientWidth<i.mobileBreakpoint)&&e.add("usf-mobile"),i.darkMode&&e.add("usf-dark"),ee&&window.usf_container&&(e.add("usf-has-container"),P.isCollectionPage&&e.add("usf-collections-page"),e.add(i.filters.horz?"usf-horz-layout":"usf-vert-layout"))/* Begin theme ready code */
 /* End theme ready code */
-usf.isMobile?window.addEventListener("load",t):t()})}}(); 
+usf.isMobile?window.addEventListener("load",t):t()})}}();  
