@@ -1,5 +1,4 @@
 
-
 <style>
   
   .category_carousel{
@@ -14,10 +13,17 @@
     
   }
   
+  .cell_img_container img{
+
+    width:100%;
+ 
+  }
+  
   .category_carousel::-webkit-scrollbar {
   display: none;
 }
-  .product_carousel_cell{
+  
+.cateogory_carousel .product_carousel_cell{
 		
 		width:25%;
     	margin-left:5px;
@@ -33,8 +39,14 @@
     	margin:100px 0 0 20px;
   }
 
-
-  
+   .product_carousel_cell{
+		
+		width:25%;
+    	margin-left:5px;
+    	flex:0 0 auto;
+    	
+	
+	}
 
   .category-next-btn{
   	position:absolute;
@@ -70,14 +82,16 @@
   
   .category_carousel .cell_title{
   	margin:8px 0 0px 3px;
+    line-height:1.3;
     
   }
   
   .category_carousel .cell_price{
   	margin-left:3px;
-    margin-top:-2px;
+    margin-top:2px;
   	color:#808080;
     font-size:14px;
+    
     
   }
   
@@ -118,109 +132,62 @@
 
 
 		<div class="product_carousel_title">
-    		{{section.settings.category_title}}
-        
+    		{{section.settings.carousel_name}}
   		</div>  
    
 <div class="product_carousel_container">
 <div class="category_carousel">
+  
+  {% assign cta = section.settings.cta %}
  	
- 
-	<div class="product_carousel_cell">
-      <a href="/collections/new-arrivals-women-shoulder-bags">
-     	<div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Category_shoulderbag.jpg?v=1633326306"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Category_shoulderbag.jpg?v=1633326306"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
-        </div>
-        <div class="cell_title">
-         Shoulder Bag
-        </div>
-      	<div class="cell_price">
-		 Shop Now
-      	</div>
-      </a>
-  </div> 
-  <div class="product_carousel_cell" >
-      <a href="/collections/wallet">
-      <div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Oct_Homepage_Category_Wallet.jpg?v=1633326306"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Oct_Homepage_Category_Wallet.jpg?v=1633326306"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
-        </div>
-        <div class="cell_title">
-          Wallet
-        </div>
-      	<div class="cell_price">
-          Shop Now
-      	</div>
-    </a>
-  </div>
-    <div class="product_carousel_cell" >
-      <a href="/collections/new-arrival-womens-crossbody-bags">
-      <div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/DSC06172.jpg?v=1638940392"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/DSC06172.jpg?v=1638940392"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
-        </div>
-        <div class="cell_title">
-          Crossbody Bags
-        </div>
-      	<div class="cell_price">
-          Shop Now
-      	</div>
-    </a>
-      
-  </div>
-  <div class="product_carousel_cell">
-      <a href="/collections/new-arrival-men">
-      <div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Category_Men_s.jpg?v=1638940392"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Category_Men_s.jpg?v=1638940392"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
-        </div>
-        <div class="cell_title">
-          Men's
-        </div>
-      	<div class="cell_price">
-          Shop Now
-      	</div>    
-    </a>
-    
+	{%- for block in section.blocks -%}
   
   
+ 	 {% assign image = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+  	  {% assign category_name = block.settings.category_name %}
+  	 {% assign url = block.settings.category_url %}	 
+ 	
+	
+  
+  
+  
+  		<div class="product_carousel_cell">
+      		<a href="{{ url }}">
+     		 <div class="cell_img_container">
+          		<img  src="{{ image }}"
+       			 data-srcset="{{ image }}"
+       			 data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
+       			 data-sizes="auto"
+       			 data-parent-fit="cover"
+       			 alt=""
+       			 class="lazyload Image--lazyLoad Image--fadeIn">
+         	 <noscript>
+                  <img src="{{ block.settings.image | img_url: '600x' }}" alt="{{ media.alt | escape }}">
+          	</noscript>
+       		 </div>
+              
+              <div class="cell_title">
+         		{{ category_name }}
+        	  </div>
+       		 <div class="cell_price">
+         		{{cta}}
+      	     </div>
+    		</a>
+ 		 </div> 
+  
+    {%- endfor -%}
+ 	
+
   
 </div>
-  {%comment%}
   <span class="category-next-btn">
     <svg viewBox="0 0 100 100">
       <path d="M 20,50 L 60,90 L 60,85 L 25,50  L 60,15 L 60,10 Z" class="arrow" transform="translate(100, 100) rotate(180) ">
       </path>
     </svg>
-{%endcomment%}
+
 
 </div>
-  </div>
  
 
 
@@ -233,14 +200,51 @@
     "name": "Category Section",
     "settings": [
   			{
-  				"type":"text",
-  				"id":"category_title",
-  				"label":"Title"
+  			
+         	"type": "text",
+         	"id": "carousel_name",
+         	"label": "Product Carousel Name"
+          	
+  			},
+  			{
+  				 "type": "text",
+         		 "id": "cta",
+         		 "label": "Call To Action"
+  
   			}
-  		],
+  ],
+  	"blocks":[{
+  		"name":"Slide",
+  		"type":"Slide",
+  		"settings":[
+
+  				{
+  					
+         			 "type": "image_picker",
+         			 "id": "image",
+         			 "label": "Image"
+        			
+  				},
+  				{
+  					 "type": "text",
+         			 "id": "category_name",
+         			 "label": "Name"
+  
+  				},
+  				{
+  					
+         			 "type": "url",
+         			 "id": "category_url",
+         			 "label": "Url"		 
+        			
+  				}
+  
+  			]
+ 		 }
+  ],
 	"presets":[
 		{
-			"name":"Category Carousel"
+			"name":"Category Section"
 		}
 
 	]
