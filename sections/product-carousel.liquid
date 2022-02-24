@@ -2,6 +2,21 @@
 
 <style>
   
+  .with-label{
+  	position:relative;
+  }
+  
+  .cell_label{
+     font-size:11px;
+  	 color:white;
+     background-color:black;
+     position:absolute;
+     top:10px;
+     left:10px;
+     padding:6px 10px 3px 10px;
+  }
+  
+  
   .product_carousel{
   
     display:flex;
@@ -13,6 +28,12 @@
     -ms-overflow-style: none;  /* IE and Edge */
  	 scrollbar-width: none;  /* Firefox */
     
+  }
+  
+  .cell_img_container img{
+
+    width:100%;
+ 
   }
   
   .product_carousel::-webkit-scrollbar {
@@ -35,14 +56,16 @@
   }
 
   .cell_title{
-  	margin:8px 0 0 3px;
+  	margin:8px 0 0px 3px;
+    line-height:1.3;
     
   }
   
   .cell_price{
-    margin-top:-2px;
   	margin-left:3px;
+    margin-top:2px;
   	color:#808080;
+    font-size:14px;
     
   }
   .next-btn{
@@ -103,9 +126,21 @@
        .next-btn{
        	 display:none;
        }
+    
+     .cell_label{
+     font-size:9px;
+  	 color:white;
+     background-color:black;
+     position:absolute;
+     top:5px;
+     left:5px;
+     padding:6px 7px 4px 7px;
+  }
+  	
 	
 	}
-  	
+  
+ 
   
   
  
@@ -115,184 +150,79 @@
 
 
 
+
 		<div class="product_carousel_title">
-    	New
+    	{{section.settings.carousel_name}}
         
   		</div>  
    
 <div class="product_carousel_container">
 <div class="product_carousel">
  	
- 
-	<div class="product_carousel_cell">
-      <a href="/products/venice-petite-rattan-satchel-xxs">
+  
+  	{%- for block in section.blocks -%}
+  
+ 	 {% assign slide_type = block.settings.slide_type %}
+  	 {% assign selected_product = block.settings.product %}
+  	 {% assign selected_variant = block.settings.variant_number %}
+  	 {% assign selected_product_link = selected_product.variants[selected_variant].url%}
+  	 {% assign image = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+  	 {% assign image_url = block.settings.image_url %}
+  	 {% assign selected_product_img = selected_product.variants[selected_variant].featured_media | img_url: '1x1' | replace: '_1x1.', '_{width}x.'%}
+	
+  
+	{%- if slide_type == 'product' -%}
+
+  	<div class="product_carousel_cell">
+      <a href="{{ selected_product_link }}">
      	<div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Model_Venice_Petite_Rattan.jpg?v=1641179518"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Model_Venice_Petite_Rattan.jpg?v=1641179518"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
+         <img data-src="{{ selected_product_img }}"
+       		  data-srcset="{{ selected_product._img }}"
+      		  data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
+      		  data-sizes="auto"
+       		  data-parent-fit="cover"
+      		  alt="{{ media.alt | escape }}"
+      		  class="lazyload Image--lazyLoad Image--fadeIn">
+          <noscript>
+                  <img src="{{ selected_product.variants[selected_variant].featured_media | img_url: '600x' }}" alt="{{ media.alt | escape }}">
+          </noscript>
         </div>
         <div class="cell_title">
-         
-        </div>
+         	{{ selected_product.variants[selected_variant].product.title }}
+       	</div>
       	<div class="cell_price">
-		 
+		 	{{ selected_product.variants[selected_variant].price | money_without_trailing_zeros  }}
       	</div>
-      </a>
-  </div> 
-  <div class="product_carousel_cell">
-    <a href="/products/venice-petite-rattan-satchel-xxs">
-      <div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Venice_Petite_Rattan.jpg?v=1641179517"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Venice_Petite_Rattan.jpg?v=1641179517"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
-        </div>
-        <div class="cell_title">
-          Venice Petite Rattan Satchel XXS
-        </div>
-      	<div class="cell_price">
-          $ 535
-      	</div>
-     
-    </a>
-    
-  </div>
-   
-  <div class="product_carousel_cell">
-  	<a href="/products/estela-bucket-bag-xs?variant=41433054019735">
-      <div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Estela-Bucket-Bag.jpg?v=1641179517"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Estela-Bucket-Bag.jpg?v=1641179517"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
-        </div>
-        <div class="cell_title">
-          Estela Bucket Bag XS
-        </div>
-      	<div class="cell_price">
-          $ 315
-      	</div>
-  </a>
-  </div>
+       </a>
+    </div> 
   
-  <div class="product_carousel_cell">
-      <a href="/products/astron-mono-waist-pouch-m">
-      <div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Astron_Mono_Waist_Pouch.jpg?v=1641179517"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Astron_Mono_Waist_Pouch.jpg?v=1641179517"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
-        </div>
-        <div class="cell_title">
-          Astron Mono Waist Pouch M
-        </div>
-      	<div class="cell_price">
-          $ 335
-      	</div>    
-    </a>
-    
-  </div>
-  <div class="product_carousel_cell" >
-      <a href="/products/sarto-backpack-1">
-      <div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Model_Sarto_Backpack.jpg?v=1641179517"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Model_Sarto_Backpack.jpg?v=1641179517"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
-        </div>
-        <div class="cell_title">
-          
-        </div>
-      	<div class="cell_price">
-          
-      	</div>
-    </a>
-  </div>
-  <div class="product_carousel_cell">
-      <a href="/products/sarto-backpack-1">
-      <div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Sarto_Backpack.jpg?v=1641179517"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Sarto_Backpack.jpg?v=1641179517"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
-        </div>
-        <div class="cell_title">
-          Sarto Backpack
-        </div>
-      	<div class="cell_price">
-          $ 635
-      	</div>
-    </a> 
-  </div>
-
-
-  <div class="product_carousel_cell">
-      <a href="/products/elle-christina-satchel-xs?variant=41470147625111">
-      <div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_Elle_Christina_Satchel.jpg?v=1641179517"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_Elle_Christina_Satchel.jpg?v=1641179517"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
-        </div>
-        <div class="cell_title">
-         Elle Christina Satchel XS
-        </div>
-      	<div class="cell_price">
-         $ 320
-      	</div>
-    </a>
-  </div>
-    <div class="product_carousel_cell">
-    
-      <a href="/products/dahlia-crossbody-bag-with-pouch?variant=41547727634583">
-      <div class="cell_img_container">
-          <img  src="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Dahlia_Crossbody.jpg?v=1641179517"
-        data-srcset="https://cdn.shopify.com/s/files/1/0434/3716/2647/files/Jan_New_Dahlia_Crossbody.jpg?v=1641179517"
-        data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
-        data-sizes="auto"
-        data-parent-fit="cover"
-        alt=""
-        class="lazyload Image--lazyLoad Image--fadeIn">
-          
-        </div>
-        <div class="cell_title">
-          Dahlia Crossbody Bag With Pouch
-        </div>
-      	<div class="cell_price">
-          <span style="color:#c94533; margin-right:5px;">$ 170</span><span style="text-decoration:line-through">$ 300</span>
-      	</div>
-    </a>
-  	</div>
   
+  		{%- else if slide_type == 'image' -%}
+  
+  		<div class="product_carousel_cell">
+      		<a href="{{ image_url }}">
+     		 <div class="cell_img_container">
+          		<img  src="{{ image }}"
+       			 data-srcset="{{ image }}"
+       			 data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
+       			 data-sizes="auto"
+       			 data-parent-fit="cover"
+       			 alt=""
+       			 class="lazyload Image--lazyLoad Image--fadeIn">
+           	 <noscript>
+                  <img src="{{ block.settings.image | img_url: '600x' }}" alt="{{ media.alt | escape }}">
+          	</noscript>
+       		 </div>
+    		</a>
+ 		 </div> 
+  
+  		{%- endif -%}
+
+  
+  	{%- endfor -%}
+ 	
+ 
+	
   
 </div>
   <span class="next-btn">
@@ -312,8 +242,75 @@
 
 {% schema %}
   {
-    "name": "Section name",
-    "settings": [],
+    "name": "Product Carousel",
+    "settings": [
+  			{
+  			
+         	"type": "text",
+         	"id": "carousel_name",
+         	"label": "Product Carousel Name"
+          	
+  			}
+  ],
+  	"blocks":[{
+  		"name":"Slide",
+  		"type":"Slide",
+  		"settings":[
+  				{
+  					"type":"select",
+  					"id":"slide_type",
+  					"label": "Slide Type",
+  					"options":[
+  						{
+  						"value":"image",
+  						"label":"Image"
+  						},
+  						{
+  						"value":"product",
+  						"label":"Product"
+  						}
+  					],
+  					"default":"product"
+  					
+  
+  				},
+  				{
+  					
+         			 "type": "product",
+         			 "id": "product",
+         			 "label": "Product"
+          			 
+        			
+  				},
+  				{
+  					 "type":"number",
+  					 "id":"variant_number",
+  					 "label":"Variant",
+  					 "info":"For 1st variant, put 0. For 2nd variant, put 1 etc."
+  				},
+
+  				{
+  					
+         			 "type": "image_picker",
+         			 "id": "image",
+         			 "label": "Image",
+  					 "info":"If image option is selected"
+          			 
+        			
+  				},
+  				{
+  					
+         			 "type": "url",
+         			 "id": "image_url",
+         			 "label": "Image Url",
+  					 "info":"If image option is selected"
+          			 
+        			
+  				}
+  
+  			]
+ 		 }
+  ],
 	"presets":[
 		{
 			"name":"Product Carousel"
