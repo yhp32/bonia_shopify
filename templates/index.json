@@ -20,7 +20,102 @@
     },
     "1633086783af047aae": {
       "type": "product-carousel",
+      "blocks": {
+        "d02ec848-a06b-42b2-851b-40c89549500c": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "image",
+            "product": "",
+            "image": "shopify:\/\/shop_images\/New_Model_Venice_Rattan.jpg",
+            "image_url": "shopify:\/\/products\/venice-petite-rattan-satchel-bag-xxs"
+          }
+        },
+        "452b0998-5260-4b4a-9a60-15d8014b5c96": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "venice-petite-rattan-satchel-bag-xxs",
+            "variant_number": 0,
+            "image_url": ""
+          }
+        },
+        "750d4f04-f285-41ff-8d97-da4b072ce59c": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "estela-bucket-bag-xs",
+            "variant_number": 2,
+            "image_url": ""
+          }
+        },
+        "533ef24b-64d7-4638-a16d-509e76c45d5c": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "panel-mono-waist-pouch-i",
+            "variant_number": 0,
+            "image_url": ""
+          }
+        },
+        "c9190833-aca2-4de8-9bd0-8e5ae5e84ef0": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "image",
+            "product": "",
+            "image": "shopify:\/\/shop_images\/Page_AboutUs_3.jpg",
+            "image_url": "shopify:\/\/products\/diagono-monogram-crossbody-bag"
+          }
+        },
+        "64f366b2-c8e4-4d85-a06c-965797dd614e": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "diagono-monogram-crossbody-bag",
+            "variant_number": 0,
+            "image_url": ""
+          }
+        },
+        "dbe0bdc8-73c6-4f67-8eac-5b50714956f5": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "gianna-shoulder-bag",
+            "variant_number": 0,
+            "image_url": ""
+          }
+        },
+        "3f9369f1-07b9-4a4f-a4f5-b280ab993551": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "black-adjani-monogram-shoulder-bag",
+            "variant_number": 0,
+            "image_url": ""
+          }
+        },
+        "24a3e7b3-db1b-4dff-9dd4-7102ca768374": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "raine-water-bottle-holder",
+            "variant_number": 2,
+            "image_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "d02ec848-a06b-42b2-851b-40c89549500c",
+        "452b0998-5260-4b4a-9a60-15d8014b5c96",
+        "750d4f04-f285-41ff-8d97-da4b072ce59c",
+        "533ef24b-64d7-4638-a16d-509e76c45d5c",
+        "c9190833-aca2-4de8-9bd0-8e5ae5e84ef0",
+        "64f366b2-c8e4-4d85-a06c-965797dd614e",
+        "dbe0bdc8-73c6-4f67-8eac-5b50714956f5",
+        "3f9369f1-07b9-4a4f-a4f5-b280ab993551",
+        "24a3e7b3-db1b-4dff-9dd4-7102ca768374"
+      ],
       "settings": {
+        "carousel_name": ""
       }
     },
     "1633086791d19b8d47": {
