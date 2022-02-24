@@ -1,0 +1,267 @@
+<style>
+  
+  .best_seller_carousel{
+  
+    display:flex;
+  	margin:30px 0 100px 0;
+    padding-right:5px; 
+    position:relative;
+    overflow-x:auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+ 	 scrollbar-width: none;  /* Firefox */
+    
+  }
+  
+    
+  .cell_img_container img{
+
+    width:100%;
+ 
+  }
+  
+   .best_seller_carousel .cell_title{
+  	margin:8px 0 0px 3px;
+    line-height:1.3;
+    
+  }
+  
+  .best_seller_carousel .cell_price{
+  	margin-left:3px;
+    margin-top:2px;
+  	color:#808080;
+    font-size:14px;
+    
+    
+  }
+  
+  .best_seller_carousel::-webkit-scrollbar {
+  display: none;
+}
+  
+
+  .bs-next-btn{
+   position:absolute;
+    top:calc(50% - 45px);
+    right:8px;
+    z-index:2;
+    border: none;
+	border-radius: 50%;
+	background-color:white;
+	color: #000;
+	cursor: pointer;
+	text-align: center;
+	z-index: 1;
+	
+	vertical-align: middle;
+	line-height: 0;
+	padding:10px;
+    opacity:0.7;
+  }
+  
+  .bs-next-btn:hover{
+  	opacity:1;
+    color: #000000;
+    transform: scale(1.05);
+    transition:transform 0.1s ease-in-out;
+	
+  }
+  
+  .bs-next-btn svg{
+  	height:23px;
+  }
+  
+  @media screen and (max-width:650px){
+  
+    .best-seller_carousel{
+    
+    	margin:30px 0 0px 0;
+    }
+    	.product_carousel_title{
+    	
+    	margin:50px 0 0 10px;
+  }
+  	  .product_carousel_cell{
+		flex:0 0 auto;
+		width:40%;
+    	margin-left:5px;
+    	
+      }
+       .bs-next-btn{
+       	 display:none;
+       }
+	
+	}
+  
+</style>
+
+
+<div class="product_carousel_title">
+    	{{section.settings.carousel_name}}
+        
+</div>
+
+<div class="product_carousel_container">
+<div class="best_seller_carousel">
+  
+  {%- for block in section.blocks -%}
+  
+ 	 {% assign slide_type = block.settings.slide_type %}
+  	 {% assign selected_product = block.settings.product %}
+  	 {% assign selected_variant = block.settings.variant_number %}
+  	 {% assign selected_product_link = selected_product.variants[selected_variant].url%}
+  	 {% assign image = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+  	 {% assign image_url = block.settings.image_url %}
+  	 {% assign selected_product_img = selected_product.variants[selected_variant].featured_media | img_url: '1x1' | replace: '_1x1.', '_{width}x.'%}
+	
+  
+	{%- if slide_type == 'product' -%}
+
+  	<div class="product_carousel_cell">
+      <a href="{{ selected_product_link }}">
+     	<div class="cell_img_container">
+         <img data-src="{{ selected_product_img }}"
+       		  data-srcset="{{ selected_product._img }}"
+      		  data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
+      		  data-sizes="auto"
+       		  data-parent-fit="cover"
+      		  alt="{{ media.alt | escape }}"
+      		  class="lazyload Image--lazyLoad Image--fadeIn">
+        </div>
+        <noscript>
+                  <img src="{{ selected_product.variants[selected_variant].featured_media | img_url: '600x' }}" alt="{{ media.alt | escape }}">
+          </noscript>
+        <div class="cell_title">
+         	{{ selected_product.variants[selected_variant].product.title }}
+       	</div>
+      	<div class="cell_price">
+		 	{{ selected_product.variants[selected_variant].price | money_without_trailing_zeros  }}
+      	</div>
+       </a>
+    </div> 
+  
+  
+  		{%- else if slide_type == 'image' -%}
+  
+  		<div class="product_carousel_cell">
+      		<a href="{{ image_url }}">
+     		 <div class="cell_img_container">
+          		<img  src="{{ image }}"
+       			 data-srcset="{{ image }}"
+       			 data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
+       			 data-sizes="auto"
+       			 data-parent-fit="cover"
+       			 alt=""
+       			 class="lazyload Image--lazyLoad Image--fadeIn">
+          		<noscript>
+                  <img src="{{ block.settings.image | img_url: '600x' }}" alt="{{ media.alt | escape }}">
+          	</noscript>
+       		 </div>
+    		</a>
+ 		 </div> 
+  
+  		{%- endif -%}
+
+  
+  	{%- endfor -%}
+ 
+  </div>
+  <span class="bs-next-btn">
+    <svg viewBox="0 0 100 100">
+      <path d="M 20,50 L 60,90 L 60,85 L 25,50  L 60,15 L 60,10 Z" class="arrow" transform="translate(100, 100) rotate(180) ">
+      </path>
+    </svg>
+  </span>
+ 
+</div>
+
+ 
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "Trending",
+    "settings": [
+  			{
+  			
+         	"type": "text",
+         	"id": "carousel_name",
+         	"label": "Product Carousel Name"
+          	
+  			}
+  ],
+  	"blocks":[{
+  		"name":"Slide",
+  		"type":"Slide",
+  		"settings":[
+  				{
+  					"type":"select",
+  					"id":"slide_type",
+  					"label": "Slide Type",
+  					"options":[
+  						{
+  						"value":"image",
+  						"label":"Image"
+  						},
+  						{
+  						"value":"product",
+  						"label":"Product"
+  						}
+  					],
+					"default":"product"
+  
+  				},
+  				{
+  					
+         			 "type": "product",
+         			 "id": "product",
+         			 "label": "Product"
+          			 
+        			
+  				},
+  				{
+  					 "type":"number",
+  					 "id":"variant_number",
+  					 "label":"Variant",
+  					 "info":"For 1st variant, put 0. For 2nd variant, put 1 etc."
+  				},
+
+  				{
+  					
+         			 "type": "image_picker",
+         			 "id": "image",
+         			 "label": "Image",
+  					 "info":"If image option is selected"
+          			 
+        			
+  				},
+  				{
+  					
+         			 "type": "url",
+         			 "id": "image_url",
+         			 "label": "Image Url",
+  					 "info":"If image option is selected"
+          			 
+        			
+  				}
+  
+  			]
+ 		 }
+  ],
+	"presets":[
+		{
+			"name":"Trending"
+		}
+
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
