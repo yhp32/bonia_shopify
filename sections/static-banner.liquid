@@ -129,7 +129,7 @@
   
   	
     .static-banner-title{
-    	font-size:25px;
+    	font-size:20px;
       	margin-left:10px;
       	margin-right:10px;
     }
@@ -168,7 +168,7 @@
 
 
 {%- assign desktop_image = section.settings.desktop_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-{%- assign mobile_image = section.settings.mobile_image | default: section.settings.desktop_image -%}
+{%- assign mobile_image = section.settings.mobile_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' | default: section.settings.desktop_image -%}
 
 
 <div class="static-banner" >
@@ -183,9 +183,8 @@
    
   <div class="static-banner-image {%if section.settings.image_overlay == true %}Image--contrast{% endif %}">
 
-    {%- if desktop_image -%}
+      {%- if desktop_image -%}
      <img 
-        src="{{ desktop_image | img_url:'1400x' }}"
         data-src="{{ desktop_image }}"
         data-widths="[400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200]"
         data-sizes="auto"
@@ -193,18 +192,22 @@
         alt="{{ desktop_image.alt }}"
         class="lazyload Image--lazyLoad Image--fadeIn hidden-phone">
    
+    <noscript>
+      <img src="{{ desktop_image | img_url:'1400x' }}" alt="{{ desktop_image.alt }}">
+    </noscript>
     {%- endif -%}
 
-    {%- if mobile_image -%}
+     {%- if mobile_image -%}
      <img 
-        src="{{ mobile_image | img_url:'1x1' }}"
-        data-src="{{ mobile_image | img_url:'x800'}}"
+        data-src="{{ mobile_image }}"
         data-widths="[400, 600, 800]"
         data-sizes="auto"
         data-parent-fit="cover"
         alt="{{ mobile_image.alt }}"
         class="lazyload Image--lazyLoad Image--fadeIn hidden-tablet-and-up">
-    
+   <noscript>
+      <img src="{{ mobile_image | img_url:'800x' }}" alt="{{ mobile_image.alt }}">
+    </noscript>
     {%- endif -%}
       
   </div>
