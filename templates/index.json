@@ -142,6 +142,37 @@
     },
     "1633086788acd87f5c": {
       "type": "category-section",
+      "blocks": {
+        "8168f621-09bd-4841-90a4-182700e4600b": {
+          "type": "Slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Category_shoulderbag.jpg",
+            "category_name": "Women's Bags",
+            "category_url": "shopify:\/\/collections\/new-arrival-womens-bags"
+          }
+        },
+        "4f48cabc-b4bc-450e-8a87-722221a5bf9f": {
+          "type": "Slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Oct_Homepage_Category_Wallet.jpg",
+            "category_name": "Women's Wallets",
+            "category_url": "shopify:\/\/collections\/new-arrivals-women-wallets"
+          }
+        },
+        "d9697102-c1d1-4c2f-826e-86bf59a08f55": {
+          "type": "Slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Category_Men_s.jpg",
+            "category_name": "Men's",
+            "category_url": "shopify:\/\/collections\/mens-accessories"
+          }
+        }
+      },
+      "block_order": [
+        "8168f621-09bd-4841-90a4-182700e4600b",
+        "4f48cabc-b4bc-450e-8a87-722221a5bf9f",
+        "d9697102-c1d1-4c2f-826e-86bf59a08f55"
+      ],
       "settings": {
       }
     },
