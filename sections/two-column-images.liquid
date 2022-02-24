@@ -77,8 +77,8 @@
 </style>
 
 
-{%- assign img_1 =  section.settings.img_1 | img_url:'1000x'  -%}
-{%- assign img_2 = section.settings.img_2 | img_url:'1000x' -%}
+{%- assign img_1 =  section.settings.img_1 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+{%- assign img_2 = section.settings.img_2 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 {%- assign link_1 = section.settings.link_1 -%}
 {%- assign link_2 = section.settings.link_2  -%}
 {%- assign label_1 = section.settings.label_1  -%}
@@ -101,7 +101,9 @@
         data-parent-fit="cover"
         alt="{{ img_1.alt }}"
         class="lazyload Image--lazyLoad Image--fadeIn">
-    
+    <noscript>
+          <img src="{{ img_1 | img_url: '1400x' }}" alt="{{ img_1.alt }}">
+     </noscript>
        {% if label_1 != blank %}
       
       <div class="featured-img-label">
@@ -125,7 +127,9 @@
         data-parent-fit="cover"
         alt="{{ img_2.alt }}"
         class="lazyload Image--lazyLoad Image--fadeIn">
-   
+   <noscript>
+          <img src="{{ img_2 | img_url: '1400x' }}" alt="{{ img_2.alt }}">
+     </noscript>
       {% if label_1 != blank %}
        <div class="featured-img-label">
         
