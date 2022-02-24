@@ -163,17 +163,28 @@
           "type": "Slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/Category_Men_s.jpg",
-            "category_name": "Men's",
-            "category_url": "shopify:\/\/collections\/mens-accessories"
+            "category_name": "Men's Bags",
+            "category_url": "shopify:\/\/collections\/new-arrival-mens-bags"
+          }
+        },
+        "021ab042-9055-4906-9709-6da7abb0d13f": {
+          "type": "Slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Categories_Menss_Wallets.jpg",
+            "category_name": "Men's Wallet",
+            "category_url": "shopify:\/\/collections\/new-arrivals-mens-wallet"
           }
         }
       },
       "block_order": [
         "8168f621-09bd-4841-90a4-182700e4600b",
         "4f48cabc-b4bc-450e-8a87-722221a5bf9f",
-        "d9697102-c1d1-4c2f-826e-86bf59a08f55"
+        "d9697102-c1d1-4c2f-826e-86bf59a08f55",
+        "021ab042-9055-4906-9709-6da7abb0d13f"
       ],
       "settings": {
+        "carousel_name": "",
+        "cta": "Shop Now"
       }
     },
     "163332620565ca75ef": {
