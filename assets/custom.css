@@ -1,4 +1,40 @@
-@charset "utf-8";
+
+@font-face {
+      font-family: Sangbleu;
+      src: url(https://cdn.shopify.com/s/files/1/0073/2361/5279/files/SangBleuOGSans-Regular-WebS.woff2?v=1628753543);
+ 
+    }
+
+
+@font-face {
+      font-family: Sangbleu-light;
+      src: url(https://cdn.shopify.com/s/files/1/0073/2361/5279/files/SangBleuOGSans-Light.otf?v=1644462796);
+ 
+    }
+
+@font-face {
+      font-family: Sangbleu-Sans;
+      src: url(https://cdn.shopify.com/s/files/1/0073/2361/5279/files/SangBleuSans-Regular.woff?v=1634891183);
+  	  font-style:normal;
+  	  font-weight:regular;
+  
+}
+  
+@font-face {
+      font-family: Sangbleu-Sans-light;
+      src: url(https://cdn.shopify.com/s/files/1/0073/2361/5279/files/SangBleuSans-Light.otf?v=1644396180);
+  	  font-style:normal;
+  	  font-weight:light;
+
+     
+    }
+
+@font-face {
+      font-family: AcuminPro;
+      src: url(https://cdn.shopify.com/s/files/1/0073/2361/5279/files/Acumin_Pro_Light.otf?v=1634892164);
+     
+    }
+
 
 
 /*  */
