@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "article": {
+      "type": "b-scene-template",
+      "settings": {
+        "show_article_image": true,
+        "show_date": true,
+        "show_category": false,
+        "show_author": false,
+        "show_share_buttons": true
+      }
+    },
+    "shop-now": {
+      "type": "shop-now",
+      "disabled": true,
+      "blocks": {
+        "quote": {
+          "type": "quote",
+          "settings": {
+            "content": "<p>You can use this element to add a quote, content...<\/p>",
+            "author": ""
+          }
+        }
+      },
+      "block_order": [
+        "quote"
+      ],
+      "settings": {
+        "title": "Shop now",
+        "collection": "",
+        "grid_items_count": 6,
+        "show_product_info": true,
+        "show_vendor": false,
+        "show_color_swatch": false
+      }
+    }
+  },
+  "order": [
+    "article",
+    "shop-now"
+  ]
+}
