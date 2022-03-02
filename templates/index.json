@@ -208,11 +208,11 @@
     "1645685508e0e3c4e2": {
       "type": "best-seller-carousel",
       "blocks": {
-        "29c05f6a-865c-4c8c-ba0f-8abd81ee96cb": {
+        "92170eeb-3040-4077-95e7-df08046e10ec": {
           "type": "Slide",
           "settings": {
             "slide_type": "product",
-            "product": "gianna-shoulder-bag",
+            "product": "astron-nylon-crossbody-bag-m",
             "variant_number": 0,
             "image_url": ""
           }
@@ -225,11 +225,50 @@
             "variant_number": 0,
             "image_url": ""
           }
+        },
+        "0534c5ee-39ad-4750-a288-fdf64df8c0ac": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "image",
+            "product": "",
+            "image": "shopify:\/\/shop_images\/Homepage_New_Model_Naiara_Tote.jpg",
+            "image_url": "shopify:\/\/products\/naiara-tote-bag-m"
+          }
+        },
+        "9a045502-d821-4a0e-b2bb-817c45cf77e1": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "miley-sling-bag",
+            "variant_number": 1,
+            "image_url": ""
+          }
+        },
+        "0591eb61-01f3-4a2c-b0ff-0134a2e52593": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "elle-long-zippered-wallet",
+            "variant_number": 2,
+            "image_url": ""
+          }
+        },
+        "5fa33e4b-5e73-4063-b4d4-75b03e70304a": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "",
+            "image_url": ""
+          }
         }
       },
       "block_order": [
-        "29c05f6a-865c-4c8c-ba0f-8abd81ee96cb",
-        "f5d6c231-ac24-42ce-b582-a316d9a3fda1"
+        "92170eeb-3040-4077-95e7-df08046e10ec",
+        "f5d6c231-ac24-42ce-b582-a316d9a3fda1",
+        "0534c5ee-39ad-4750-a288-fdf64df8c0ac",
+        "9a045502-d821-4a0e-b2bb-817c45cf77e1",
+        "0591eb61-01f3-4a2c-b0ff-0134a2e52593",
+        "5fa33e4b-5e73-4063-b4d4-75b03e70304a"
       ],
       "settings": {
         "carousel_name": ""
