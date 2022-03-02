@@ -184,7 +184,8 @@
       ],
       "settings": {
         "carousel_name": "",
-        "cta": "Shop Now"
+        "cta": "Shop Now",
+        "next_btn": true
       }
     },
     "163332620565ca75ef": {
