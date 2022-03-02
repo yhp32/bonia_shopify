@@ -282,7 +282,7 @@
  
 });
   
-  {%comment%}
+
    $('.category_carousel').slick({
   infinite: true,
   slidesToShow: 4,
@@ -297,8 +297,23 @@
   ]
  
 });
+  
+  $('.best_seller_carousel').slick({
+  infinite: true,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  nextArrow: $('.category-next-btn'),
+  responsive:[
+    {
+      breakpoint:650,
+      settings:"unslick"
+
+    }
+  ]
+ 
+});
    
-    {%endcomment%}
+
   
 
 </script>
