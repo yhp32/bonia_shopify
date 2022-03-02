@@ -205,30 +205,31 @@
         "cta": "Shop Now"
       }
     },
-    "163332620565ca75ef": {
-      "type": "custom-liquid",
-      "settings": {
-        "subheading": "",
-        "title": "#BONIA",
-        "liquid": "<covet-pics-widget gallery-embed-id=\"177311\"><\/covet-pics-widget>"
-      }
-    },
     "1645685508e0e3c4e2": {
       "type": "best-seller-carousel",
-      "disabled": true,
       "blocks": {
         "29c05f6a-865c-4c8c-ba0f-8abd81ee96cb": {
           "type": "Slide",
           "settings": {
             "slide_type": "product",
-            "product": "black-adjani-monogram-shoulder-bag",
+            "product": "gianna-shoulder-bag",
+            "variant_number": 0,
+            "image_url": ""
+          }
+        },
+        "f5d6c231-ac24-42ce-b582-a316d9a3fda1": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "naiara-tote-bag-m",
             "variant_number": 0,
             "image_url": ""
           }
         }
       },
       "block_order": [
-        "29c05f6a-865c-4c8c-ba0f-8abd81ee96cb"
+        "29c05f6a-865c-4c8c-ba0f-8abd81ee96cb",
+        "f5d6c231-ac24-42ce-b582-a316d9a3fda1"
       ],
       "settings": {
         "carousel_name": ""
@@ -241,7 +242,6 @@
     "1633086791d19b8d47",
     "1633087079014f9a25",
     "1633086788acd87f5c",
-    "163332620565ca75ef",
     "1645685508e0e3c4e2"
   ]
 }
