@@ -174,18 +174,26 @@
             "category_name": "Men's Wallet",
             "category_url": "shopify:\/\/collections\/new-arrivals-mens-wallet"
           }
+        },
+        "09a523df-c87b-4b8c-85d1-05833f987045": {
+          "type": "Slide",
+          "settings": {
+            "category_name": "",
+            "category_url": ""
+          }
         }
       },
       "block_order": [
         "8168f621-09bd-4841-90a4-182700e4600b",
         "4f48cabc-b4bc-450e-8a87-722221a5bf9f",
         "d9697102-c1d1-4c2f-826e-86bf59a08f55",
-        "021ab042-9055-4906-9709-6da7abb0d13f"
+        "021ab042-9055-4906-9709-6da7abb0d13f",
+        "09a523df-c87b-4b8c-85d1-05833f987045"
       ],
       "settings": {
         "carousel_name": "",
         "cta": "Shop Now",
-        "next_btn": true
+        "next_btn": false
       }
     },
     "163332620565ca75ef": {
