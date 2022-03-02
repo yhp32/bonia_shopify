@@ -174,18 +174,35 @@
             "category_name": "Men's Wallet",
             "category_url": "shopify:\/\/collections\/new-arrivals-mens-wallet"
           }
+        },
+        "0074aab4-3a1a-4470-9bb0-8a86cea19f2c": {
+          "type": "Slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Cat_Womens_Sling_Bags.jpg",
+            "category_name": "Women's Sling Bags",
+            "category_url": "shopify:\/\/collections\/new-arrivals-womens-sling-bags"
+          }
+        },
+        "e6150f3d-8736-4b92-b69a-e63bd4813a7d": {
+          "type": "Slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Cat_Womens_Satchel.jpg",
+            "category_name": "Women's Satchels",
+            "category_url": "shopify:\/\/collections\/new-arrivals-women-satchels"
+          }
         }
       },
       "block_order": [
         "8168f621-09bd-4841-90a4-182700e4600b",
         "4f48cabc-b4bc-450e-8a87-722221a5bf9f",
         "d9697102-c1d1-4c2f-826e-86bf59a08f55",
-        "021ab042-9055-4906-9709-6da7abb0d13f"
+        "021ab042-9055-4906-9709-6da7abb0d13f",
+        "0074aab4-3a1a-4470-9bb0-8a86cea19f2c",
+        "e6150f3d-8736-4b92-b69a-e63bd4813a7d"
       ],
       "settings": {
         "carousel_name": "",
-        "cta": "Shop Now",
-        "next_btn": false
+        "cta": "Shop Now"
       }
     },
     "163332620565ca75ef": {
