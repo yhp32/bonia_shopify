@@ -257,7 +257,26 @@
           "type": "Slide",
           "settings": {
             "slide_type": "product",
-            "product": "",
+            "product": "bonia-x-scha-umi-silk-scarf",
+            "variant_number": 0,
+            "image_url": ""
+          }
+        },
+        "94d0b370-db8d-47eb-9600-83d04b8b195f": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "tomasso-lanyard-with-passholder",
+            "variant_number": 0,
+            "image_url": ""
+          }
+        },
+        "17069327-7fd9-499a-b129-0a707f58c225": {
+          "type": "Slide",
+          "settings": {
+            "slide_type": "product",
+            "product": "kaleidoscope-short-3-fold-wallet-ii",
+            "variant_number": 0,
             "image_url": ""
           }
         }
@@ -268,7 +287,9 @@
         "0534c5ee-39ad-4750-a288-fdf64df8c0ac",
         "9a045502-d821-4a0e-b2bb-817c45cf77e1",
         "0591eb61-01f3-4a2c-b0ff-0134a2e52593",
-        "5fa33e4b-5e73-4063-b4d4-75b03e70304a"
+        "5fa33e4b-5e73-4063-b4d4-75b03e70304a",
+        "94d0b370-db8d-47eb-9600-83d04b8b195f",
+        "17069327-7fd9-499a-b129-0a707f58c225"
       ],
       "settings": {
         "carousel_name": ""
