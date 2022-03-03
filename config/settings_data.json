@@ -82,6 +82,75 @@
       },
       "header": {
         "type": "header",
+        "blocks": {
+          "279c1bb5-5c31-4281-b390-25ce5ac84419": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "what's new",
+              "push_1_heading": "Example heading",
+              "push_1_subheading": "Example sub-heading",
+              "push_1_url": "",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          },
+          "9b751ce3-a1b0-424c-8065-5bf38933c932": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "wanderland",
+              "push_1_heading": "Example heading",
+              "push_1_subheading": "Example sub-heading",
+              "push_1_url": "",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          },
+          "ae410c2a-08ae-4a41-bd6b-9101c1659a67": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "women",
+              "push_1_heading": "Example heading",
+              "push_1_subheading": "Example sub-heading",
+              "push_1_url": "",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          },
+          "7cd37eae-58fe-4a08-b92b-fa15d11ed653": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "men",
+              "push_1_heading": "Example heading",
+              "push_1_subheading": "Example sub-heading",
+              "push_1_url": "",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          },
+          "51137278-a24d-4517-9d10-39b4af5b2d28": {
+            "type": "mega_menu",
+            "settings": {
+              "navigation_mega_menu": "sale",
+              "push_1_heading": "Example heading",
+              "push_1_subheading": "Example sub-heading",
+              "push_1_url": "",
+              "push_2_heading": "Example heading",
+              "push_2_subheading": "Example sub-heading",
+              "push_2_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "279c1bb5-5c31-4281-b390-25ce5ac84419",
+          "9b751ce3-a1b0-424c-8065-5bf38933c932",
+          "ae410c2a-08ae-4a41-bd6b-9101c1659a67",
+          "7cd37eae-58fe-4a08-b92b-fa15d11ed653",
+          "51137278-a24d-4517-9d10-39b4af5b2d28"
+        ],
         "settings": {
           "use_sticky_header": true,
           "logo": "shopify:\/\/shop_images\/BONIA_Logo.png",
