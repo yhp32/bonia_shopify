@@ -62,7 +62,7 @@
       "sidebar-menu": {
         "type": "sidebar-menu",
         "settings": {
-          "primary_menu": "main-menu",
+          "primary_menu": "mobile-menu",
           "secondary_menu": "customer-care",
           "show_social_media": true
         }
@@ -89,7 +89,7 @@
           "mobile_logo_max_width": 105,
           "show_currency_selector": true,
           "show_locale_selector": true,
-          "navigation_menu": "",
+          "navigation_menu": "mega-menu-desktop",
           "navigation_style": "logoLeft",
           "show_icons": true,
           "enable_transparent_header": false,
