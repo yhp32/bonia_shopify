@@ -12,7 +12,9 @@
 
     {{ checkout_stylesheets }}
     {{ checkout_scripts }}
-  </head>
+  {% render 'weglot_hreftags' %}
+{% render 'weglot_switcher' %}
+</head>
   <body>
     {{ skip_to_content_link }}
 

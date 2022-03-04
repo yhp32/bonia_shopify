@@ -48,7 +48,9 @@
     </script>
 
     {% render 'microdata-schema' %}
-  </head>
+  {% render 'weglot_hreftags' %}
+{% render 'weglot_switcher' %}
+</head>
 
   {%- capture classes -%}features--heading-{{ settings.heading_size }}{%- endcapture -%}
 
